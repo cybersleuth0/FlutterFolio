@@ -326,35 +326,6 @@ export default function Index() {
               </div>
             </motion.div>
 
-            {/* mock device */}
-            <motion.div
-              className="relative mx-auto w-full max-w-4xl h-[60vh] md:h-[70vh] -mt-1 lg:mt-0"
-              whileHover={{ scale: 1.01 }}
-            >
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/10 blur-lg" />
-
-              <div className="relative h-full rounded-2xl border bg-gradient-to-b from-background to-muted shadow-2xl overflow-hidden">
-                {/* Laptop bezel top */}
-                <div className="h-8 bg-[#0b0b0b] border-b border-border flex items-center px-4 gap-3">
-                  <div className="h-2 w-2 rounded-full bg-red-500/80" />
-                  <div className="h-2 w-2 rounded-full bg-yellow-400/80" />
-                  <div className="h-2 w-2 rounded-full bg-green-400/80" />
-                  <div className="ml-auto text-xs text-muted-foreground">12:34</div>
-                </div>
-
-                {/* Screen area */}
-                <div className="absolute left-4 right-4 top-12 bottom-4 rounded-md bg-black/5 overflow-hidden p-4">
-                  <div className="h-full w-full box-border">
-                    <MiniPreview />
-                  </div>
-                </div>
-
-                {/* Laptop base */}
-                <div className="absolute left-0 right-0 bottom-0 h-16 flex items-end justify-center pointer-events-none">
-                  <div className="w-11/12 h-10 bg-gradient-to-b from-black/10 to-black/20 rounded-b-xl border-t border-border/40" />
-                </div>
-              </div>
-            </motion.div>
 
             {/* Persistent chat panel beside device */}
             <div className="mt-6 md:mt-0 md:ml-6">
