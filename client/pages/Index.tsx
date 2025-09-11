@@ -50,6 +50,51 @@ const skills = [
   { group: "Other", items: ["State Management", "API Integration", "UI/UX Design", "Authentication"] },
 ];
 
+const carouselImages = [
+  "https://images.pexels.com/photos/6612388/pexels-photo-6612388.jpeg",
+  "https://images.pexels.com/photos/8947160/pexels-photo-8947160.jpeg",
+  "https://images.pexels.com/photos/6279105/pexels-photo-6279105.jpeg",
+];
+
+function Carousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setIndex((i) => (i + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <div className="relative h-full w-full bg-black/5">
+      {carouselImages.map((src, i) => (
+        <motion.img
+          key={src}
+          src={src}
+          alt={`screenshot-${i}`}
+          className="absolute inset-0 h-full w-full object-cover"
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: i === index ? 1 : 0, scale: i === index ? 1 : 1.02 }}
+          transition={{ duration: 0.8 }}
+        />
+      ))}
+      <div className="absolute left-3 bottom-3 flex items-center gap-2">
+        {carouselImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`h-2 w-8 rounded-full transition-colors ${
+              i === index ? "bg-primary" : "bg-muted"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Index() {
   return (
     <main className="relative">
