@@ -193,16 +193,6 @@ function MiniPreview() {
         </motion.div>
       ))}
 
-      <div className="absolute left-3 bottom-3 flex items-center gap-2">
-        {miniSlides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`h-2 w-8 rounded-full transition-colors ${i === index ? "bg-primary" : "bg-muted"}`}
-            aria-label={`Go to preview ${i + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
