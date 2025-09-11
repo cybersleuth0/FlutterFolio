@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Todo App",
     description:
-      "Offline-first To���Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
+      "Offline-first To‑Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
     tags: ["Flutter", "Dart", "Cubit", "Sqflite"],
     links: { github: "https://github.com/cybersleuth0" },
   },
@@ -216,6 +216,23 @@ export default function Index() {
             <p>
               My toolkit includes Flutter, Dart, Firebase, REST, Riverpod/BLoC, and CI/CD. I’ve shipped apps end‑to‑end: from idea, to store, to users.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* education */}
+      <section id="education" className="scroll-mt-32 pt-12">
+        <div className="mx-auto max-w-7xl px-4 grid gap-6 md:grid-cols-3 items-start">
+          <div className="md:col-span-1">
+            <h2 className="text-2xl font-bold">Education</h2>
+            <p className="text-muted-foreground mt-1">Academic background</p>
+          </div>
+          <div className="md:col-span-2 space-y-4 text-muted-foreground">
+            <div>
+              <p className="font-semibold">Manipal University Jaipur — Bachelor of Computer Applications (BCA)</p>
+              <p className="text-sm">2024 – Present</p>
+              <p className="text-sm">SGPA (Semester 1): 9.18 / 10.00</p>
+            </div>
           </div>
         </div>
       </section>
