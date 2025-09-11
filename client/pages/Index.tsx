@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Github, Linkedin, Sparkles, Smartphone, Code2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
