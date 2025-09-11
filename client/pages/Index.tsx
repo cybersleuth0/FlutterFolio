@@ -350,7 +350,7 @@ export default function Index() {
       {/* contact */}
       <section id="contact" className="scroll-mt-32 pt-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="rounded-2xl border p-8 md:p-12 bg-gradient-to-br from-primary/10 via-accent/6 to-secondary/6">
+          <motion.div className="rounded-2xl border p-8 md:p-12 bg-gradient-to-br from-primary/10 via-accent/6 to-secondary/6" initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6 }}>
             <h2 className="text-2xl md:text-3xl font-bold">Let’s build your next app</h2>
             <p className="mt-2 text-muted-foreground max-w-prose">
               Have an idea or need help scaling your product? I’m open to freelance and full‑time opportunities.
@@ -366,7 +366,7 @@ export default function Index() {
                 <a href="tel:+919518598045">Call: +91 9518598045</a>
               </Button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
