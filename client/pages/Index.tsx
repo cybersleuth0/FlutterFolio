@@ -51,28 +51,10 @@ const skills = [
 ];
 
 const miniSlides = [
-  ({ className = "" }: { className?: string }) => (
-    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}>
-      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-lg bg-primary/80" />
-          <div>
-            <div className="h-3 w-36 rounded bg-muted mb-2" />
-            <div className="h-2 w-24 rounded bg-muted" />
-          </div>
-        </div>
-        <div className="mt-6">
-          <div className="h-8 w-3/4 rounded bg-muted mb-3" />
-          <div className="h-3 w-1/2 rounded bg-muted" />
-        </div>
-        <div className="mt-6 grid grid-cols-3 gap-2">
-          <div className="h-20 rounded-lg bg-muted" />
-          <div className="h-20 rounded-lg bg-muted" />
-          <div className="h-20 rounded-lg bg-muted" />
-        </div>
-      </div>
-    </div>
-  ),
+  ({ className = "" }: { className?: string }) => {
+    // Chat preview slide: client finds you, you solve the problem, client happy
+    return <ChatPreview />;
+  },
   ({ className = "" }: { className?: string }) => (
     <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-secondary/6 to-accent/6"}`}>
       <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4">
