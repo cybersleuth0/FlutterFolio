@@ -10,6 +10,7 @@ import {
 import { Github, Linkedin, Sparkles, Smartphone, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import ChatPanel from "@/components/site/ChatPanel";
 
 const projects = [
   {
