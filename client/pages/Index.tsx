@@ -283,12 +283,12 @@ export default function Index() {
 
             {/* mock device */}
             <motion.div
-              className="relative mx-auto w-full max-w-sm"
+              className="relative mx-auto w-full max-w-sm h-[65vh] md:h-screen"
               whileHover={{ scale: 1.03 }}
             >
-              <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-cyan-400/30 to-blue-500/30 blur-2xl" />
-              <div className="relative aspect-[9/19] rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl transform-gpu">
-                <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden flex items-center justify-center">
+              <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-accent/20 to-secondary/20 blur-2xl" />
+              <div className="relative h-full rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl transform-gpu overflow-hidden">
+                <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden">
                   {/* Mini preview */}
                   <MiniPreview />
                 </div>
