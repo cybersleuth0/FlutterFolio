@@ -249,34 +249,36 @@ export default function Index() {
             </div>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
-              <Card key={p.title} className="group">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    {p.title}
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
-                      <Smartphone className="h-4 w-4" /> Flutter
-                    </span>
-                  </CardTitle>
-                  <CardDescription>{p.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <Badge key={t} variant="outline" className="px-2.5 py-0.5">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex gap-2">
-                    <Button asChild size="sm">
-                      <a href={p.links.github}>
-                        <Code2 className="mr-1 h-4 w-4" /> Source
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+            {projects.map((p, idx) => (
+              <motion.div key={p.title} initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.25 }} transition={{ duration: 0.55, delay: idx * 0.06 }}>
+                <Card className="group">
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {p.title}
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
+                        <Smartphone className="h-4 w-4" /> Flutter
+                      </span>
+                    </CardTitle>
+                    <CardDescription>{p.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {p.tags.map((t) => (
+                        <Badge key={t} variant="outline" className="px-2.5 py-0.5">
+                          {t}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="mt-4 flex gap-2">
+                      <Button asChild size="sm">
+                        <a href={p.links.github}>
+                          <Code2 className="mr-1 h-4 w-4" /> Source
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
