@@ -138,10 +138,14 @@ function ChatPreview() {
   const visibleMessages = steps.slice(steps.length - visible);
   const nextPending = steps[steps.length - (visible + 1)];
 
+  // compute index of the most recently revealed message
+  const newlyRevealedIndex = steps.length - visible;
+
   // auto-scroll to bottom whenever visible or typing changes
   useEffect(() => {
     const el = scrollRef.current;
     if (el) {
+      // keep bottom pinned
       el.scrollTop = el.scrollHeight;
     }
   }, [visible, showTyping]);
@@ -149,19 +153,23 @@ function ChatPreview() {
   return (
     <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
       <div ref={scrollRef} className="space-y-3 overflow-y-auto h-full pr-2">
-        {visibleMessages.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
-          >
-            <div className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
-              {s.text}
-            </div>
-          </motion.div>
-        ))}
+        {visibleMessages.map((s, i) => {
+          const originalIndex = steps.length - visible + i;
+          const isNew = originalIndex === newlyRevealedIndex;
+          return (
+            <motion.div
+              key={originalIndex}
+              initial={isNew ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
+            >
+              <div className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                {s.text}
+              </div>
+            </motion.div>
+          );
+        })}
 
         {showTyping && nextPending && (
           <div className={`${nextPending.from === "you" ? "ml-auto mr-2" : "mr-auto ml-2"}`}>
