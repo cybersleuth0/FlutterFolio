@@ -62,10 +62,36 @@ const skills = [
 ];
 
 const miniSlides = [
-  ({ className = "" }: { className?: string }) => {
-    // Chat preview slide: client finds you, you solve the problem, client happy
-    return <ChatPreview />;
-  },
+  ({ className = "" }: { className?: string }) => (
+    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}>
+      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4 flex flex-col">
+        <div className="flex items-center justify-between mb-3">
+          <div className="h-3 w-36 rounded bg-muted" />
+          <div className="h-3 w-20 rounded bg-muted" />
+        </div>
+        <div className="flex-1 grid grid-cols-2 gap-3">
+          <div className="rounded-lg bg-muted p-3 flex flex-col gap-2">
+            <div className="h-6 w-3/4 rounded bg-black/10" />
+            <div className="h-3 w-2/3 rounded bg-black/8" />
+            <div className="mt-auto h-8 rounded bg-black/10" />
+          </div>
+          <div className="rounded-lg bg-muted p-3 flex flex-col gap-2">
+            <div className="h-6 w-3/4 rounded bg-black/10" />
+            <div className="h-3 w-2/3 rounded bg-black/8" />
+            <div className="mt-auto h-8 rounded bg-black/10" />
+          </div>
+          <div className="col-span-2 rounded-lg bg-muted p-3">
+            <div className="h-3 w-1/2 rounded bg-black/8 mb-3" />
+            <div className="grid grid-cols-3 gap-2">
+              <div className="h-20 rounded bg-black/10" />
+              <div className="h-20 rounded bg-black/10" />
+              <div className="h-20 rounded bg-black/10" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
   ({ className = "" }: { className?: string }) => (
     <div
       className={`h-full w-full p-4 ${"bg-gradient-to-b from-secondary/6 to-accent/6"}`}
