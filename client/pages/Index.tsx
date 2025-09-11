@@ -99,131 +99,63 @@ function ChatPreview() {
   const steps = [
     { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
     { from: "client", text: "I have a tight deadline and no time to debug..." },
-    {
-      from: "you",
-      text: "Share the crash logs and I’ll take a look — I can fix it today.",
-    },
+    { from: "you", text: "Share the crash logs and I’ll take a look — I can fix it today." },
     { from: "client", text: "That would be amazing, thank you!" },
-    {
-      from: "you",
-      text: "Done. I pushed a patch and added tests. Can you try the build?",
-    },
+    { from: "you", text: "Done. I pushed a patch and added tests. Can you try the build?" },
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ];
 
-  const [visible, setVisible] = useState(1);
-  const [showTyping, setShowTyping] = useState(false);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  // Reveal all messages but animate them bottom-to-top sequentially; no scrolling and keep visible
+  const [revealedCount, setRevealedCount] = useState(0);
 
   useEffect(() => {
     const timers: number[] = [];
-    let v = 1;
+    const n = steps.length;
 
-    const tick = () => {
-      const nextIdx = steps.length - (v + 1); // index of message to reveal next
-      if (nextIdx < 0) {
-        // reached top; pause then restart
-        timers.push(
-          window.setTimeout(() => {
-            v = 1;
-            setVisible(1);
-            timers.push(window.setTimeout(tick, 1200));
-          }, 2500),
-        );
-        return;
-      }
-
-      const nextMsg = steps[nextIdx];
-      if (nextMsg.from === "you") {
-        setShowTyping(true);
-        timers.push(
-          window.setTimeout(() => {
-            setShowTyping(false);
-            v += 1;
-            setVisible(v);
-            timers.push(window.setTimeout(tick, 900));
-          }, 1200),
-        );
-      } else {
-        setShowTyping(false);
-        v += 1;
-        setVisible(v);
-        timers.push(window.setTimeout(tick, 900));
-      }
+    // reveal bottom message first, then the one above it, etc.
+    const revealStep = (i: number) => {
+      if (i >= n) return;
+      // reveal i-th from bottom -> index = n - 1 - i
+      setRevealedCount(i + 1);
+      timers.push(
+        window.setTimeout(() => {
+          revealStep(i + 1);
+        }, 700),
+      );
     };
 
-    // start after a short delay, showing only the last message
-    setVisible(1);
-    timers.push(window.setTimeout(tick, 900));
+    timers.push(window.setTimeout(() => revealStep(0), 600));
 
     return () => timers.forEach((t) => clearTimeout(t));
   }, []);
 
-  // compute the array of visible messages (last `visible` messages)
-  const visibleMessages = steps.slice(steps.length - visible);
-  const nextPending = steps[steps.length - (visible + 1)];
-
-  // compute index of the most recently revealed message
-  const newlyRevealedIndex = steps.length - visible;
-
-  // auto-scroll to bottom whenever visible or typing changes
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      // keep bottom pinned
-      el.scrollTop = el.scrollHeight;
-    }
-  }, [visible, showTyping]);
+  const n = steps.length;
 
   return (
-    <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
-      <div ref={scrollRef} className="space-y-3 overflow-y-auto h-full pr-2">
-        {visibleMessages.map((s, i) => {
-          const originalIndex = steps.length - visible + i;
-          const isNew = originalIndex === newlyRevealedIndex;
+    <div className="h-full w-full p-2 flex flex-col justify-end overflow-hidden">
+      <div className="space-y-2 h-full pr-2 box-border">
+        {steps.map((s, i) => {
+          const orderFromBottom = n - 1 - i; // 0 = bottom
+          const visible = orderFromBottom < revealedCount; // show when revealedCount > orderFromBottom
+          const delay = orderFromBottom * 0.12;
+
           return (
             <motion.div
-              key={originalIndex}
-              initial={isNew ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-              className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
+              key={i}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 8 }}
+              transition={{ duration: 0.35, delay }}
+              className={`max-w-[78%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
             >
-              <div
-                className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
-              >
+              <div className={`inline-block rounded-md px-2 py-1 text-[11px] leading-tight ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
                 {s.text}
               </div>
             </motion.div>
           );
         })}
-
-        {showTyping && nextPending && (
-          <div
-            className={`${nextPending.from === "you" ? "ml-auto mr-2" : "mr-auto ml-2"}`}
-          >
-            <div
-              className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2"
-              style={{ width: 48 }}
-            >
-              <span
-                className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse"
-                style={{ animationDelay: "0s" }}
-              />
-              <span
-                className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse"
-                style={{ animationDelay: "0.15s" }}
-              />
-              <span
-                className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse"
-                style={{ animationDelay: "0.3s" }}
-              />
-            </div>
-          </div>
-        )}
       </div>
 
-      <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+      <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
         <div className="h-2 w-2 rounded-full bg-destructive/60" />
         Client chat preview
       </div>
