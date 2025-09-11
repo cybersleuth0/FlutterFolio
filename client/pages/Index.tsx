@@ -265,17 +265,20 @@ export default function Index() {
       {/* contact */}
       <section id="contact" className="scroll-mt-32 pt-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="rounded-2xl border p-8 md:p-12 bg-gradient-to-br from-primary/5 via-cyan-500/5 to-blue-500/5">
+          <div className="rounded-2xl border p-8 md:p-12 bg-gradient-to-br from-primary/10 via-accent/6 to-secondary/6">
             <h2 className="text-2xl md:text-3xl font-bold">Let’s build your next app</h2>
             <p className="mt-2 text-muted-foreground max-w-prose">
               Have an idea or need help scaling your product? I’m open to freelance and full‑time opportunities.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Button asChild>
-                <a href="mailto:hello@example.com?subject=Project%20inquiry%20(Flutter)">Email Me</a>
+                <a href="mailto:ayushshende83@gmail.com?subject=Project%20inquiry%20(Flutter)">Email Me</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="https://linkedin.com/">Connect on LinkedIn</a>
+                <a href="https://linkedin.com/in/ayushshende0">Connect on LinkedIn</a>
+              </Button>
+              <Button variant="ghost" asChild>
+                <a href="tel:+919518598045">Call: +91 9518598045</a>
               </Button>
             </div>
           </div>
