@@ -148,7 +148,7 @@ export default function Index() {
       <section className="relative pt-36 md:pt-40">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 items-center">
-            <div>
+            <motion.div initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
               <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground">
                 <Sparkles className="h-3.5 w-3.5" /> Available for freelance work
               </div>
@@ -216,7 +216,7 @@ export default function Index() {
                   Email: <a href="mailto:ayushshende83@gmail.com" className="underline">ayushshende83@gmail.com</a> — Phone: <a href="tel:+919518598045" className="underline">+91 9518598045</a>
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* mock device */}
             <motion.div
