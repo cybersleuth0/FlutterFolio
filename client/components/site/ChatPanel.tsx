@@ -49,18 +49,20 @@ export default function ChatPanel() {
                   </div>
                 </div>
 
-                {/* Chat overlay - top of laptop preview */}
-                <div className="absolute right-4 top-6 w-56 pointer-events-none">
-                  {messages.map((m, i) => (
-                    <div
-                      key={i}
-                      className={`mb-2 max-w-full ${m.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
-                    >
-                      <div className={`inline-block rounded-md px-2 py-1 text-xs leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
-                        {m.text}
-                      </div>
+                {/* Chat overlay - top-right of laptop preview */}
+                <div className="absolute right-6 top-6 w-64 pointer-events-none">
+                  <div className="bg-black/50 backdrop-blur rounded-lg p-3 shadow-lg">
+                    <div className="flex flex-col gap-2 max-h-48 overflow-hidden">
+                      {messages.map((m, i) => (
+                        <div
+                          key={i}
+                          className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}
+                        >
+                          <div className={`${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"} rounded-md px-3 py-1 text-[12px] leading-tight max-w-[85%]`}>{m.text}</div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
 
               </div>
