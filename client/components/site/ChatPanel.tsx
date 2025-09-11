@@ -13,7 +13,7 @@ const steps = [
 
 export default function ChatPanel() {
   return (
-    <Card className="mt-6 md:mt-8 w-full md:w-96">
+    <Card className="mt-[22px] md:mt-8 w-full md:w-96">
       <CardContent>
         <div className="flex flex-col gap-3">
           {steps.map((s, i) => (
