@@ -12,6 +12,49 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
+    /* Dark aesthetic as default */
+    --background: 220 12% 6%; /* deep navy */
+    --foreground: 210 40% 98%; /* near-white text */
+
+    --card: 220 12% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 12% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 95% 46%; /* neon teal */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 60% 18%; /* deep purple */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 12% 12%;
+    --muted-foreground: 215 16% 70%;
+
+    --accent: 270 80% 45%; /* vivid purple accent */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 18%;
+    --input: 220 10% 16%;
+    --ring: 190 95% 46%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 12% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 190 95% 46%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 270 80% 45%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 8% 14%;
+    --sidebar-ring: 190 95% 46%;
+  }
+
+  .light {
+    /* Optional light theme when .light class is applied */
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
 
@@ -21,7 +64,6 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Flutter‑inspired primary blue */
     --primary: 203 97% 31%;
     --primary-foreground: 210 40% 98%;
 
@@ -42,54 +84,6 @@
     --ring: 203 97% 31%;
 
     --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 203 97% 31%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 201 94% 93%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 203 97% 31%;
-  }
-
-  .dark {
-    --background: 222 65% 6%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 65% 6%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 65% 6%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 202 100% 49%;
-    --primary-foreground: 222 47% 11%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 203 60% 18%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 202 100% 49%;
-
-    --sidebar-background: 222 65% 6%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 202 100% 49%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 202 100% 49%;
   }
 }
 
