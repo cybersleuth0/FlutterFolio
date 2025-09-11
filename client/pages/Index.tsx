@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Todo App",
     description:
-      "Offline-first To‑Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
+      "Offline-first To���Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
     tags: ["Flutter", "Dart", "Cubit", "Sqflite"],
     links: { github: "https://github.com/cybersleuth0" },
   },
@@ -74,23 +74,36 @@ export default function Index() {
                 Flutter developer focused on craft, performance and smooth animations. I turn ideas into polished, production‑ready apps.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Button className="">View Projects</Button>
+                <Button asChild>
+                  <a href="#projects">View Projects</a>
+                </Button>
+
                 <Button variant="outline" asChild>
                   <a href="#contact">Contact Me</a>
                 </Button>
+
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/cybersleuth0"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
                   aria-label="GitHub"
                 >
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/"
+                  href="https://linkedin.com/in/ayushshende0"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
+                </a>
+
+                <a
+                  href="https://cdn.builder.io/o/assets%2Fd27b201b66fa4008b030539dc4f9452d%2F411fe3bc2e6644638bfee07ae9d8f931?alt=media&token=20e1f54e-d606-4bbf-bfb7-d0f8768f98c0&apiKey=d27b201b66fa4008b030539dc4f9452d"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-2 inline-flex items-center rounded-md px-3 py-2 text-sm border"
+                >
+                  Resume
                 </a>
               </div>
 
@@ -107,6 +120,13 @@ export default function Index() {
                     {t}
                   </Badge>
                 ))}
+              </div>
+
+              <div className="mt-6 text-sm text-muted-foreground">
+                <p>Nagpur, India</p>
+                <p>
+                  Email: <a href="mailto:ayushshende83@gmail.com" className="underline">ayushshende83@gmail.com</a> — Phone: <a href="tel:+919518598045" className="underline">+91 9518598045</a>
+                </p>
               </div>
             </div>
 
