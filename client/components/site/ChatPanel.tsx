@@ -31,10 +31,6 @@ export default function ChatPanel() {
             </div>
           ))}
 
-          <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-            <Badge variant="outline">Status</Badge>
-            <span>Client chat preview — always visible</span>
-          </div>
         </div>
       </CardContent>
     </Card>
