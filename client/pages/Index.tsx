@@ -1,62 +1,241 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Github, Linkedin, Play, Sparkles, Smartphone, Code2 } from "lucide-react";
+
+const projects = [
+  {
+    title: "HabitFlow",
+    description:
+      "Personal habit tracker with streaks, reminders, and rich charts. Built with Flutter, Riverpod, and Firebase.",
+    tags: ["Flutter", "Riverpod", "Firebase", "Charts"],
+    links: { github: "https://github.com/", store: "https://play.google.com/" },
+  },
+  {
+    title: "ShopSwift",
+    description:
+      "E‑commerce app with beautiful product cards, secure checkout, and offline caching.",
+    tags: ["Flutter", "BLoC", "Dio", "Stripe"],
+    links: { github: "https://github.com/", store: "https://play.google.com/" },
+  },
+  {
+    title: "TravelBuddy",
+    description:
+      "City guides, itinerary planning, and live weather with smooth animations and theming.",
+    tags: ["Flutter", "GetX", "REST", "Animations"],
+    links: { github: "https://github.com/", store: "https://play.google.com/" },
+  },
+];
+
+const skills = [
+  { group: "Core", items: ["Flutter", "Dart", "Material 3", "Cupertino" ] },
+  { group: "State", items: ["Riverpod", "Provider", "BLoC", "GetX"] },
+  { group: "Backend", items: ["Firebase", "Supabase", "REST", "GraphQL"] },
+  { group: "Tools", items: ["Git", "CI/CD", "Codemagic", "Fastlane"] },
+  { group: "Testing", items: ["Widget Tests", "Integration Tests", "Golden Tests"] },
+];
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
+    <main className="relative">
+      {/* decorative background */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-48 -z-10 overflow-hidden">
+        <div className="mx-auto h-[420px] w-[1200px] max-w-none bg-[radial-gradient(800px_300px_at_50%_20%,theme(colors.cyan.400/.25),transparent),radial-gradient(600px_250px_at_20%_10%,theme(colors.primary.DEFAULT/.18),transparent),radial-gradient(600px_250px_at_80%_10%,theme(colors.blue.400/.18),transparent)] blur-2xl" />
       </div>
-    </div>
+
+      {/* hero */}
+      <section className="relative pt-36 md:pt-40">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-8 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground">
+                <Sparkles className="h-3.5 w-3.5" /> Available for freelance work
+              </div>
+              <h1 className="mt-6 text-4xl/tight font-extrabold sm:text-5xl/tight">
+                Hi, I’m Ayush — I build delightful mobile apps with Flutter
+              </h1>
+              <p className="mt-4 text-muted-foreground max-w-prose">
+                Flutter developer focused on craft, performance and smooth animations. I turn ideas into polished, production‑ready apps.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Button className="">View Projects</Button>
+                <Button variant="outline" asChild>
+                  <a href="#contact">Contact Me</a>
+                </Button>
+                <a
+                  href="https://github.com/"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                {[
+                  "Flutter",
+                  "Dart",
+                  "Firebase",
+                  "Riverpod",
+                  "BLoC",
+                  "Animations",
+                ].map((t) => (
+                  <Badge key={t} variant="secondary" className="px-3 py-1">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* mock device */}
+            <div className="relative mx-auto w-full max-w-sm">
+              <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-cyan-400/30 to-blue-500/30 blur-2xl" />
+              <div className="relative aspect-[9/19] rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl">
+                <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden">
+                  <div className="h-14 bg-gradient-to-r from-primary/10 via-cyan-400/10 to-blue-500/10" />
+                  <div className="p-4 space-y-3">
+                    <div className="h-10 rounded-xl bg-muted" />
+                    <div className="h-3 w-2/3 rounded-full bg-muted" />
+                    <div className="grid grid-cols-3 gap-3 pt-2">
+                      {[...Array(6)].map((_, i) => (
+                        <div key={i} className="aspect-square rounded-xl bg-muted" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 top-1.5 -translate-x-1/2 rounded-full bg-muted h-6 w-24" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* projects */}
+      <section id="projects" className="scroll-mt-32 pt-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <h2 className="text-2xl font-bold">Selected Projects</h2>
+              <p className="text-muted-foreground mt-1">A few apps I loved building</p>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((p) => (
+              <Card key={p.title} className="group">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    {p.title}
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
+                      <Smartphone className="h-4 w-4" /> Flutter
+                    </span>
+                  </CardTitle>
+                  <CardDescription>{p.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <Badge key={t} variant="outline" className="px-2.5 py-0.5">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex gap-2">
+                    <Button asChild size="sm">
+                      <a href={p.links.store}>
+                        <Play className="mr-1 h-4 w-4" /> Try App
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild size="sm">
+                      <a href={p.links.github}>
+                        <Code2 className="mr-1 h-4 w-4" /> Source
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* about */}
+      <section id="about" className="scroll-mt-32 pt-20">
+        <div className="mx-auto max-w-7xl px-4 grid gap-8 md:grid-cols-3">
+          <div className="md:col-span-1">
+            <h2 className="text-2xl font-bold">About</h2>
+            <p className="text-muted-foreground mt-1">Who I am and how I work</p>
+          </div>
+          <div className="md:col-span-2 space-y-4 text-muted-foreground">
+            <p>
+              I design and build fast, reliable apps with a strong focus on user experience. I care about
+              clean architecture, maintainable code, and pixel‑perfect UI.
+            </p>
+            <p>
+              My toolkit includes Flutter, Dart, Firebase, REST, Riverpod/BLoC, and CI/CD. I’ve shipped apps end‑to‑end: from idea, to store, to users.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* skills */}
+      <section id="skills" className="scroll-mt-32 pt-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold">Skills</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {skills.map((s) => (
+              <Card key={s.group}>
+                <CardHeader>
+                  <CardTitle className="text-xl">{s.group}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {s.items.map((i) => (
+                      <Badge key={i} variant="secondary" className="px-3 py-1">
+                        {i}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* contact */}
+      <section id="contact" className="scroll-mt-32 pt-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="rounded-2xl border p-8 md:p-12 bg-gradient-to-br from-primary/5 via-cyan-500/5 to-blue-500/5">
+            <h2 className="text-2xl md:text-3xl font-bold">Let’s build your next app</h2>
+            <p className="mt-2 text-muted-foreground max-w-prose">
+              Have an idea or need help scaling your product? I’m open to freelance and full‑time opportunities.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Button asChild>
+                <a href="mailto:hello@example.com?subject=Project%20inquiry%20(Flutter)">Email Me</a>
+              </Button>
+              <Button variant="outline" asChild>
+                <a href="https://linkedin.com/">Connect on LinkedIn</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="h-24" />
+    </main>
   );
 }
