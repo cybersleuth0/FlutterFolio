@@ -90,16 +90,65 @@ function ChatPreview() {
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ];
 
-  // Show full conversation; animate each message with a staggered delay
+  const [index, setIndex] = useState(0);
+  const [showTyping, setShowTyping] = useState(false);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const timers: number[] = [];
+
+    const run = (i: number) => {
+      if (i >= steps.length) {
+        // pause at the end then restart
+        timers.push(window.setTimeout(() => setIndex(0), 3000));
+        return;
+      }
+
+      const step = steps[i];
+
+      if (step.from === "you") {
+        // show typing indicator, then reveal message
+        setShowTyping(true);
+        timers.push(
+          window.setTimeout(() => {
+            setShowTyping(false);
+            setIndex(i);
+            // small delay before next message
+            timers.push(window.setTimeout(() => run(i + 1), 900));
+          }, 1200),
+        );
+      } else {
+        // client message - show immediately
+        setShowTyping(false);
+        setIndex(i);
+        timers.push(window.setTimeout(() => run(i + 1), 1000));
+      }
+    };
+
+    // start sequence from first message
+    setIndex(0);
+    timers.push(window.setTimeout(() => run(1), 900));
+
+    return () => timers.forEach((t) => clearTimeout(t));
+  }, []);
+
+  // auto-scroll to bottom whenever index or typing changes
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [index, showTyping]);
+
   return (
-    <div className="h-full w-full p-3 flex flex-col justify-start overflow-hidden">
-      <div className="space-y-3 overflow-y-auto h-full pr-2">
-        {steps.map((s, i) => (
+    <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
+      <div ref={scrollRef} className="space-y-3 overflow-y-auto h-full pr-2">
+        {steps.slice(0, index + 1).map((s, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: i * 0.35 }}
+            transition={{ duration: 0.45 }}
             className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
           >
             <div className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
@@ -107,6 +156,16 @@ function ChatPreview() {
             </div>
           </motion.div>
         ))}
+
+        {showTyping && (
+          <div className="ml-auto mr-2">
+            <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2" style={{ width: 48 }}>
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.15s" }} />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.3s" }} />
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
