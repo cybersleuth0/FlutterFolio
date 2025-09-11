@@ -142,17 +142,9 @@ export default function Index() {
             >
               <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-cyan-400/30 to-blue-500/30 blur-2xl" />
               <div className="relative aspect-[9/19] rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl transform-gpu">
-                <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden">
-                  <div className="h-14 bg-gradient-to-r from-primary/10 via-cyan-400/10 to-blue-500/10" />
-                  <div className="p-4 space-y-3">
-                    <div className="h-10 rounded-xl bg-muted animate-pulse/40" />
-                    <div className="h-3 w-2/3 rounded-full bg-muted" />
-                    <div className="grid grid-cols-3 gap-3 pt-2">
-                      {[...Array(6)].map((_, i) => (
-                        <div key={i} className="aspect-square rounded-xl bg-muted" />
-                      ))}
-                    </div>
-                  </div>
+                <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden flex items-center justify-center">
+                  {/* Carousel */}
+                  <Carousel />
                 </div>
                 <div className="absolute left-1/2 top-1.5 -translate-x-1/2 rounded-full bg-muted h-6 w-24" />
               </div>
