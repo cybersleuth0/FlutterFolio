@@ -325,21 +325,23 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-2xl font-bold">Skills</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {skills.map((s) => (
-              <Card key={s.group}>
-                <CardHeader>
-                  <CardTitle className="text-xl">{s.group}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {s.items.map((i) => (
-                      <Badge key={i} variant="secondary" className="px-3 py-1">
-                        {i}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+            {skills.map((s, idx) => (
+              <motion.div key={s.group} initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.25 }} transition={{ duration: 0.55, delay: idx * 0.05 }}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-xl">{s.group}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {s.items.map((i) => (
+                        <Badge key={i} variant="secondary" className="px-3 py-1">
+                          {i}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
