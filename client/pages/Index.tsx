@@ -58,7 +58,10 @@ export default function Index() {
                 <Sparkles className="h-3.5 w-3.5" /> Available for freelance work
               </div>
               <h1 className="mt-6 text-4xl/tight font-extrabold sm:text-5xl/tight">
-                Hi, I’m Ayush — I build delightful mobile apps with Flutter
+                <p>
+                  Hi, I’m Ayush Shende — I build delightful mobile apps with
+                  Flutter
+                </p>
               </h1>
               <p className="mt-4 text-muted-foreground max-w-prose">
                 Flutter developer focused on craft, performance and smooth animations. I turn ideas into polished, production‑ready apps.
