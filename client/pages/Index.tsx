@@ -50,44 +50,85 @@ const skills = [
   { group: "Other", items: ["State Management", "API Integration", "UI/UX Design", "Authentication"] },
 ];
 
-const carouselImages = [
-  "https://images.pexels.com/photos/6612388/pexels-photo-6612388.jpeg",
-  "https://images.pexels.com/photos/8947160/pexels-photo-8947160.jpeg",
-  "https://images.pexels.com/photos/6279105/pexels-photo-6279105.jpeg",
+const miniSlides = [
+  ({ className = "" }: { className?: string }) => (
+    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}>
+      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-lg bg-primary/80" />
+          <div>
+            <div className="h-3 w-36 rounded bg-muted mb-2" />
+            <div className="h-2 w-24 rounded bg-muted" />
+          </div>
+        </div>
+        <div className="mt-6">
+          <div className="h-8 w-3/4 rounded bg-muted mb-3" />
+          <div className="h-3 w-1/2 rounded bg-muted" />
+        </div>
+        <div className="mt-6 grid grid-cols-3 gap-2">
+          <div className="h-20 rounded-lg bg-muted" />
+          <div className="h-20 rounded-lg bg-muted" />
+          <div className="h-20 rounded-lg bg-muted" />
+        </div>
+      </div>
+    </div>
+  ),
+  ({ className = "" }: { className?: string }) => (
+    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-secondary/6 to-accent/6"}`}>
+      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4">
+        <div className="h-3 w-2/3 rounded bg-muted mb-4" />
+        <div className="grid grid-cols-2 gap-2">
+          <div className="h-20 rounded-lg bg-muted" />
+          <div className="h-20 rounded-lg bg-muted" />
+          <div className="h-20 rounded-lg bg-muted col-span-2" />
+        </div>
+      </div>
+    </div>
+  ),
+  ({ className = "" }: { className?: string }) => (
+    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 to-accent/6"}`}>
+      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4 flex flex-col justify-between">
+        <div>
+          <div className="h-6 w-3/4 rounded bg-muted mb-3" />
+          <div className="h-3 w-1/2 rounded bg-muted" />
+        </div>
+        <div className="h-12 rounded bg-muted" />
+      </div>
+    </div>
+  ),
 ];
 
-function Carousel() {
+function MiniPreview() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      setIndex((i) => (i + 1) % carouselImages.length);
-    }, 4000);
+    const t = setInterval(() => setIndex((i) => (i + 1) % miniSlides.length), 3500);
     return () => clearInterval(t);
   }, []);
 
+  const Slide = miniSlides[index];
+
   return (
     <div className="relative h-full w-full bg-black/5">
-      {carouselImages.map((src, i) => (
-        <motion.img
-          key={src}
-          src={src}
-          alt={`screenshot-${i}`}
-          className="absolute inset-0 h-full w-full object-cover"
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: i === index ? 1 : 0, scale: i === index ? 1 : 1.02 }}
-          transition={{ duration: 0.8 }}
-        />
+      {miniSlides.map((S, i) => (
+        <motion.div
+          key={i}
+          className="absolute inset-0 h-full w-full"
+          initial={{ opacity: 0, y: 8, scale: 0.995 }}
+          animate={{ opacity: i === index ? 1 : 0, y: i === index ? 0 : 8, scale: i === index ? 1 : 0.995 }}
+          transition={{ duration: 0.6 }}
+        >
+          <S />
+        </motion.div>
       ))}
+
       <div className="absolute left-3 bottom-3 flex items-center gap-2">
-        {carouselImages.map((_, i) => (
+        {miniSlides.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-2 w-8 rounded-full transition-colors ${
-              i === index ? "bg-primary" : "bg-muted"
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
+            className={`h-2 w-8 rounded-full transition-colors ${i === index ? "bg-primary" : "bg-muted"}`}
+            aria-label={`Go to preview ${i + 1}`}
           />
         ))}
       </div>
