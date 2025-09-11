@@ -288,7 +288,7 @@ export default function Index() {
 
             {/* mock device */}
             <motion.div
-              className="relative mx-auto w-full max-w-sm h-[65vh] md:h-screen"
+              className="relative mx-auto w-full max-w-sm h-[65vh] md:h-screen -mt-1 lg:mt-0"
               whileHover={{ scale: 1.03 }}
             >
               <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-accent/20 to-secondary/20 blur-2xl" />
