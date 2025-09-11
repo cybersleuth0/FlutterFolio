@@ -80,6 +80,87 @@ const miniSlides = [
   ),
 ];
 
+function ChatPreview() {
+  const steps = [
+    { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
+    { from: "client", text: "I have a tight deadline and no time to debug..." },
+    { from: "you", text: "Share the crash logs and I’ll take a look — I can fix it today." },
+    { from: "client", text: "That would be amazing, thank you!" },
+    { from: "you", text: "Done. I pushed a patch and added tests. Can you try the build?" },
+    { from: "client", text: "It works now — you're a lifesaver! 🙌" },
+  ];
+
+  const [index, setIndex] = useState(0);
+  const [showTyping, setShowTyping] = useState(false);
+
+  useEffect(() => {
+    let timers: number[] = [];
+
+    const run = (i: number) => {
+      if (i >= steps.length) {
+        // loop back after a pause
+        timers.push(window.setTimeout(() => setIndex(0), 2500));
+        return;
+      }
+
+      // show typing for replies from 'you'
+      if (steps[i].from === "you") {
+        setShowTyping(true);
+        timers.push(
+          window.setTimeout(() => {
+            setShowTyping(false);
+            setIndex(i);
+            timers.push(window.setTimeout(() => run(i + 1), 900));
+          }, 1200),
+        );
+      } else {
+        setShowTyping(false);
+        setIndex(i);
+        timers.push(window.setTimeout(() => run(i + 1), 1100));
+      }
+    };
+
+    run(0);
+
+    return () => timers.forEach((t) => clearTimeout(t));
+  }, []);
+
+  return (
+    <div className="h-full w-full p-3 flex flex-col justify-end">
+      <div className="space-y-2">
+        {steps.slice(0, index + 1).map((s, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
+          >
+            <div className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+              {s.text}
+            </div>
+          </motion.div>
+        ))}
+
+        {showTyping && (
+          <div className="ml-auto mr-2">
+            <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2">
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse delay-75" />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse delay-150" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+        <div className="h-2 w-2 rounded-full bg-destructive/60" />
+        Client chat preview
+      </div>
+    </div>
+  );
+}
+
 function MiniPreview() {
   const [index, setIndex] = useState(0);
 
