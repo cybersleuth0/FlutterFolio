@@ -310,13 +310,13 @@ export default function Index() {
             <h2 className="text-2xl font-bold">Education</h2>
             <p className="text-muted-foreground mt-1">Academic background</p>
           </div>
-          <div className="md:col-span-2 space-y-4 text-muted-foreground">
+          <motion.div className="md:col-span-2 space-y-4 text-muted-foreground" initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.25 }} transition={{ duration: 0.6 }}>
             <div>
               <p className="font-semibold">Manipal University Jaipur — Bachelor of Computer Applications (BCA)</p>
               <p className="text-sm">2024 – Present</p>
               <p className="text-sm">SGPA (Semester 1): 9.18 / 10.00</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
