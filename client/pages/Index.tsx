@@ -90,60 +90,66 @@ function ChatPreview() {
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ];
 
-  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(1);
   const [showTyping, setShowTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const timers: number[] = [];
+    let v = 1;
 
-    const run = (i: number) => {
-      if (i >= steps.length) {
-        // pause at the end then restart
-        timers.push(window.setTimeout(() => setIndex(0), 3000));
+    const tick = () => {
+      const nextIdx = steps.length - (v + 1); // index of message to reveal next
+      if (nextIdx < 0) {
+        // reached top; pause then restart
+        timers.push(window.setTimeout(() => {
+          v = 1;
+          setVisible(1);
+          timers.push(window.setTimeout(tick, 1200));
+        }, 2500));
         return;
       }
 
-      const step = steps[i];
-
-      if (step.from === "you") {
-        // show typing indicator, then reveal message
+      const nextMsg = steps[nextIdx];
+      if (nextMsg.from === "you") {
         setShowTyping(true);
-        timers.push(
-          window.setTimeout(() => {
-            setShowTyping(false);
-            setIndex(i);
-            // small delay before next message
-            timers.push(window.setTimeout(() => run(i + 1), 900));
-          }, 1200),
-        );
+        timers.push(window.setTimeout(() => {
+          setShowTyping(false);
+          v += 1;
+          setVisible(v);
+          timers.push(window.setTimeout(tick, 900));
+        }, 1200));
       } else {
-        // client message - show immediately
         setShowTyping(false);
-        setIndex(i);
-        timers.push(window.setTimeout(() => run(i + 1), 1000));
+        v += 1;
+        setVisible(v);
+        timers.push(window.setTimeout(tick, 900));
       }
     };
 
-    // start sequence from first message
-    setIndex(0);
-    timers.push(window.setTimeout(() => run(1), 900));
+    // start after a short delay, showing only the last message
+    setVisible(1);
+    timers.push(window.setTimeout(tick, 900));
 
     return () => timers.forEach((t) => clearTimeout(t));
   }, []);
 
-  // auto-scroll to bottom whenever index or typing changes
+  // compute the array of visible messages (last `visible` messages)
+  const visibleMessages = steps.slice(steps.length - visible);
+  const nextPending = steps[steps.length - (visible + 1)];
+
+  // auto-scroll to bottom whenever visible or typing changes
   useEffect(() => {
     const el = scrollRef.current;
     if (el) {
       el.scrollTop = el.scrollHeight;
     }
-  }, [index, showTyping]);
+  }, [visible, showTyping]);
 
   return (
     <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
       <div ref={scrollRef} className="space-y-3 overflow-y-auto h-full pr-2">
-        {steps.slice(0, index + 1).map((s, i) => (
+        {visibleMessages.map((s, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 8 }}
@@ -157,8 +163,8 @@ function ChatPreview() {
           </motion.div>
         ))}
 
-        {showTyping && (
-          <div className="ml-auto mr-2">
+        {showTyping && nextPending && (
+          <div className={`${nextPending.from === "you" ? "ml-auto mr-2" : "mr-auto ml-2"}`}>
             <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2" style={{ width: 48 }}>
               <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
               <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.15s" }} />
