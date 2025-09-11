@@ -384,7 +384,7 @@ export default function Index() {
                 </div>
 
                 {/* Screen area */}
-                <div className="absolute inset-4 rounded-md bg-black/5 overflow-hidden p-4">
+                <div className="absolute left-4 right-4 top-12 bottom-4 rounded-md bg-black/5 overflow-hidden p-4">
                   <div className="h-full w-full box-border">
                     <MiniPreview />
                   </div>
