@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Github, Linkedin, Play, Sparkles, Smartphone, Code2 } from "lucide-react";
+import { Github, Linkedin, Sparkles, Smartphone, Code2 } from "lucide-react";
 
 const projects = [
   {
