@@ -90,58 +90,16 @@ function ChatPreview() {
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ];
 
-  const [index, setIndex] = useState(0);
-  const [showTyping, setShowTyping] = useState(false);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    let timers: number[] = [];
-
-    const run = (i: number) => {
-      if (i >= steps.length) {
-        // loop back after a pause
-        timers.push(window.setTimeout(() => setIndex(0), 2500));
-        return;
-      }
-
-      if (steps[i].from === "you") {
-        setShowTyping(true);
-        timers.push(
-          window.setTimeout(() => {
-            setShowTyping(false);
-            setIndex(i);
-            timers.push(window.setTimeout(() => run(i + 1), 900));
-          }, 1200),
-        );
-      } else {
-        setShowTyping(false);
-        setIndex(i);
-        timers.push(window.setTimeout(() => run(i + 1), 1100));
-      }
-    };
-
-    run(0);
-
-    return () => timers.forEach((t) => clearTimeout(t));
-  }, []);
-
-  // auto scroll to bottom when index changes
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.scrollTop = el.scrollHeight;
-    }
-  }, [index, showTyping]);
-
+  // Show full conversation; animate each message with a staggered delay
   return (
-    <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
-      <div ref={scrollRef} className="space-y-2 overflow-y-auto max-h-full pr-2">
-        {steps.slice(0, index + 1).map((s, i) => (
+    <div className="h-full w-full p-3 flex flex-col justify-start overflow-hidden">
+      <div className="space-y-3 overflow-y-auto h-full pr-2">
+        {steps.map((s, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.45, delay: i * 0.35 }}
             className={`max-w-[82%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
           >
             <div className={`inline-block rounded-lg px-3 py-2 text-sm ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
@@ -149,16 +107,6 @@ function ChatPreview() {
             </div>
           </motion.div>
         ))}
-
-        {showTyping && (
-          <div className="ml-auto mr-2">
-            <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2" style={{ width: 48 }}>
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.15s" }} />
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.3s" }} />
-            </div>
-          </div>
-        )}
       </div>
 
       <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
