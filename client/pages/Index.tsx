@@ -284,10 +284,7 @@ export default function Index() {
             {/* mock device */}
             <motion.div
               className="relative mx-auto w-full max-w-sm"
-              initial={{ y: 0, rotate: 0 }}
-              animate={{ y: [0, -10, 0], rotate: [0, 1.5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.03, rotate: -2 }}
+              whileHover={{ scale: 1.03 }}
             >
               <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-cyan-400/30 to-blue-500/30 blur-2xl" />
               <div className="relative aspect-[9/19] rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl transform-gpu">
