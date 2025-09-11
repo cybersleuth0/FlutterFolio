@@ -355,6 +355,11 @@ export default function Index() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Persistent chat panel beside device */}
+            <div className="mt-6 md:mt-0 md:ml-6">
+              <ChatPanel />
+            </div>
           </div>
         </div>
       </section>
