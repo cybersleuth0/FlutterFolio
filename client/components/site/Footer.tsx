@@ -15,13 +15,13 @@ export default function Footer() {
           <a href="#contact" className="hover:text-foreground/80 text-foreground/70">Contact</a>
         </nav>
         <div className="flex justify-start md:justify-end gap-3">
-          <a href="mailto:hello@example.com" aria-label="Email" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
+          <a href="mailto:ayushshende83@gmail.com" aria-label="Email" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
             <Mail className="h-5 w-5" />
           </a>
-          <a href="https://github.com/" aria-label="GitHub" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
+          <a href="https://github.com/cybersleuth0" aria-label="GitHub" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
             <Github className="h-5 w-5" />
           </a>
-          <a href="https://linkedin.com/" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
+          <a href="https://linkedin.com/in/ayushshende0" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
             <Linkedin className="h-5 w-5" />
           </a>
         </div>
