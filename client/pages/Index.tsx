@@ -11,34 +11,41 @@ import { Github, Linkedin, Play, Sparkles, Smartphone, Code2 } from "lucide-reac
 
 const projects = [
   {
-    title: "HabitFlow",
+    title: "Expenso",
     description:
-      "Personal habit tracker with streaks, reminders, and rich charts. Built with Flutter, Riverpod, and Firebase.",
-    tags: ["Flutter", "Riverpod", "Firebase", "Charts"],
-    links: { github: "https://github.com/", store: "https://play.google.com/" },
+      "Cross-platform personal expense tracker with CRUD, transaction filtering by date and category, and dynamic data visualizations for spending analysis. Built with Flutter and Bloc architecture.",
+    tags: ["Flutter", "Dart", "Bloc", "SQLite"],
+    links: { github: "https://github.com/cybersleuth0" },
   },
   {
-    title: "ShopSwift",
+    title: "Todo App",
     description:
-      "E‑commerce app with beautiful product cards, secure checkout, and offline caching.",
-    tags: ["Flutter", "BLoC", "Dio", "Stripe"],
-    links: { github: "https://github.com/", store: "https://play.google.com/" },
+      "Offline-first To‑Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
+    tags: ["Flutter", "Dart", "Cubit", "Sqflite"],
+    links: { github: "https://github.com/cybersleuth0" },
   },
   {
-    title: "TravelBuddy",
+    title: "NewsApp",
     description:
-      "City guides, itinerary planning, and live weather with smooth animations and theming.",
-    tags: ["Flutter", "GetX", "REST", "Animations"],
-    links: { github: "https://github.com/", store: "https://play.google.com/" },
+      "News aggregator delivering real-time headlines via HTTP API integration, with shimmer loading, carousel slider, and modular theming using flutter_bloc.",
+    tags: ["Flutter", "Dart", "http", "flutter_bloc"],
+    links: { github: "https://github.com/cybersleuth0" },
+  },
+  {
+    title: "Cloud Notes",
+    description:
+      "Firebase-synced note-taking app with real-time Firestore storage, authentication, and Bloc-based state management for scalable interactions.",
+    tags: ["Flutter", "Dart", "Firebase", "Firestore"],
+    links: { github: "https://github.com/cybersleuth0" },
   },
 ];
 
 const skills = [
-  { group: "Core", items: ["Flutter", "Dart", "Material 3", "Cupertino" ] },
-  { group: "State", items: ["Riverpod", "Provider", "BLoC", "GetX"] },
-  { group: "Backend", items: ["Firebase", "Supabase", "REST", "GraphQL"] },
-  { group: "Tools", items: ["Git", "CI/CD", "Codemagic", "Fastlane"] },
-  { group: "Testing", items: ["Widget Tests", "Integration Tests", "Golden Tests"] },
+  { group: "Languages", items: ["Dart"] },
+  { group: "Frameworks", items: ["Flutter", "BLoC", "Cubit", "Provider"] },
+  { group: "Tools", items: ["Android Studio", "VS Code", "Git", "GitHub", "Postman"] },
+  { group: "Databases", items: ["Firebase", "SQLite"] },
+  { group: "Other", items: ["State Management", "API Integration", "UI/UX Design", "Authentication"] },
 ];
 
 export default function Index() {
