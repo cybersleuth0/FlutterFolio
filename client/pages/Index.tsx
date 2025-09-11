@@ -144,10 +144,10 @@ function ChatPreview() {
 
         {showTyping && (
           <div className="ml-auto mr-2">
-            <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2">
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" />
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse delay-75" />
-              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse delay-150" />
+            <div className="inline-flex gap-1 items-center bg-muted rounded-lg px-3 py-2" style={{ width: 48 }}>
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.15s" }} />
+              <span className="h-2 w-2 bg-muted-foreground rounded-full animate-pulse" style={{ animationDelay: "0.3s" }} />
             </div>
           </div>
         )}
