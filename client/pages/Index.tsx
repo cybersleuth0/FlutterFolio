@@ -229,8 +229,8 @@ export default function Index() {
               <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-br from-primary/30 via-cyan-400/30 to-blue-500/30 blur-2xl" />
               <div className="relative aspect-[9/19] rounded-[2rem] border bg-gradient-to-b from-background to-muted shadow-xl transform-gpu">
                 <div className="absolute inset-3 rounded-[1.6rem] bg-background border overflow-hidden flex items-center justify-center">
-                  {/* Carousel */}
-                  <Carousel />
+                  {/* Mini preview */}
+                  <MiniPreview />
                 </div>
                 <div className="absolute left-1/2 top-1.5 -translate-x-1/2 rounded-full bg-muted h-6 w-24" />
               </div>
