@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Github, Linkedin, Sparkles, Smartphone, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const projects = [
   {
