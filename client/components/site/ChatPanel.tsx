@@ -2,6 +2,15 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function ChatPanel() {
+  const messages = [
+    { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
+    { from: "client", text: "I have a tight deadline and no time to debug..." },
+    { from: "you", text: "Share the crash logs and I’ll take a look — I can fix it today." },
+    { from: "client", text: "That would be amazing, thank you!" },
+    { from: "you", text: "Done. I pushed a patch and added tests. Can you try the build?" },
+    { from: "client", text: "It works now — you're a lifesaver! 🙌" },
+  ];
+
   return (
     <Card className="mt-[22px] md:mt-8 w-full md:w-96 pt-5 lg:pt-0">
       <CardContent>
@@ -17,7 +26,7 @@ export default function ChatPanel() {
 
             {/* screen */}
             <div className="absolute inset-3 rounded-sm bg-gradient-to-b from-black/0 to-black/6 p-3">
-              <div className="h-full w-full rounded-sm bg-gradient-to-b from-background to-muted p-3">
+              <div className="h-full w-full rounded-sm bg-gradient-to-b from-background to-muted p-3 relative">
                 <div className="h-3 w-28 rounded bg-muted mb-3" />
                 <div className="grid grid-cols-2 gap-3 h-full">
                   <div className="rounded bg-card p-3 flex flex-col gap-2">
@@ -39,6 +48,21 @@ export default function ChatPanel() {
                     </div>
                   </div>
                 </div>
+
+                {/* Chat overlay - top of laptop preview */}
+                <div className="absolute right-4 top-6 w-56 pointer-events-none">
+                  {messages.map((m, i) => (
+                    <div
+                      key={i}
+                      className={`mb-2 max-w-full ${m.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
+                    >
+                      <div className={`inline-block rounded-md px-2 py-1 text-xs leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                        {m.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </div>
 
