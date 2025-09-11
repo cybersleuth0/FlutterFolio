@@ -184,11 +184,6 @@ export default function Index() {
                   </div>
                   <div className="mt-4 flex gap-2">
                     <Button asChild size="sm">
-                      <a href={p.links.store}>
-                        <Play className="mr-1 h-4 w-4" /> Try App
-                      </a>
-                    </Button>
-                    <Button variant="outline" asChild size="sm">
                       <a href={p.links.github}>
                         <Code2 className="mr-1 h-4 w-4" /> Source
                       </a>
