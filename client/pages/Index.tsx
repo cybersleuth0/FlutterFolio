@@ -92,6 +92,7 @@ function ChatPreview() {
 
   const [index, setIndex] = useState(0);
   const [showTyping, setShowTyping] = useState(false);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let timers: number[] = [];
@@ -103,7 +104,6 @@ function ChatPreview() {
         return;
       }
 
-      // show typing for replies from 'you'
       if (steps[i].from === "you") {
         setShowTyping(true);
         timers.push(
@@ -125,9 +125,17 @@ function ChatPreview() {
     return () => timers.forEach((t) => clearTimeout(t));
   }, []);
 
+  // auto scroll to bottom when index changes
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [index, showTyping]);
+
   return (
-    <div className="h-full w-full p-3 flex flex-col justify-end">
-      <div className="space-y-2">
+    <div className="h-full w-full p-3 flex flex-col justify-end overflow-hidden">
+      <div ref={scrollRef} className="space-y-2 overflow-y-auto max-h-full pr-2">
         {steps.slice(0, index + 1).map((s, i) => (
           <motion.div
             key={i}
