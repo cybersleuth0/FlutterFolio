@@ -291,7 +291,7 @@ export default function Index() {
             <h2 className="text-2xl font-bold">About</h2>
             <p className="text-muted-foreground mt-1">Who I am and how I work</p>
           </div>
-          <div className="md:col-span-2 space-y-4 text-muted-foreground">
+          <motion.div className="md:col-span-2 space-y-4 text-muted-foreground" initial={{ opacity: 0, scale: 0.98 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.25 }} transition={{ duration: 0.6 }}>
             <p>
               I design and build fast, reliable apps with a strong focus on user experience. I care about
               clean architecture, maintainable code, and pixel‑perfect UI.
@@ -299,7 +299,7 @@ export default function Index() {
             <p>
               My toolkit includes Flutter, Dart, Firebase, REST, Riverpod/BLoC, and CI/CD. I’ve shipped apps end‑to‑end: from idea, to store, to users.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
