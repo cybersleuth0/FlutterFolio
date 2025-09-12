@@ -23,9 +23,9 @@ export default function ChatPanel() {
       <CardContent>
         <div className="w-full">
           {/* Device border */}
-          <div className="relative h-64 md:h-80 rounded-md border border-border bg-transparent overflow-hidden">
+          <div className="relative h-64 md:h-80 rounded-md bg-transparent overflow-hidden">
             {/* Top bezel */}
-            <div className="h-8 bg-transparent border-b border-border flex items-center px-3 gap-3">
+            <div className="h-8 bg-transparent flex items-center px-3 gap-3">
               <div className="h-2 w-2 rounded-full bg-red-500/60" />
               <div className="h-2 w-2 rounded-full bg-yellow-400/60" />
               <div className="h-2 w-2 rounded-full bg-green-400/60" />
