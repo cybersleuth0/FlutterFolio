@@ -18,28 +18,28 @@ const projects = [
     description:
       "Cross-platform personal expense tracker with CRUD, transaction filtering by date and category, and dynamic data visualizations for spending analysis. Built with Flutter and Bloc architecture.",
     tags: ["Flutter", "Dart", "Bloc", "SQLite"],
-    links: { github: "https://github.com/cybersleuth0" },
+    links: { github: "https://github.com/cybersleuth0/Expenso" },
   },
   {
     title: "Todo App",
     description:
       "Offline-first To‑Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
     tags: ["Flutter", "Dart", "Cubit", "Sqflite"],
-    links: { github: "https://github.com/cybersleuth0" },
+    links: { github: "https://github.com/cybersleuth0/ToDo_offline_Database_Cubit" },
   },
   {
     title: "NewsApp",
     description:
       "News aggregator delivering real-time headlines via HTTP API integration, with shimmer loading, carousel slider, and modular theming using flutter_bloc.",
     tags: ["Flutter", "Dart", "http", "flutter_bloc"],
-    links: { github: "https://github.com/cybersleuth0" },
+    links: { github: "https://github.com/cybersleuth0/NewsApp" },
   },
   {
     title: "Cloud Notes",
     description:
       "Firebase-synced note-taking app with real-time Firestore storage, authentication, and Bloc-based state management for scalable interactions.",
     tags: ["Flutter", "Dart", "Firebase", "Firestore"],
-    links: { github: "https://github.com/cybersleuth0" },
+    links: { github: "https://github.com/cybersleuth0/cloud-notes" },
   },
 ];
 
