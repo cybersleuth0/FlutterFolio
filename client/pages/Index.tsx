@@ -17,7 +17,15 @@ const projects = [
     title: "ShopSphere",
     description:
       "Modern cross‑platform e‑commerce app with auth, product listings, cart, profiles and theme switching, built with a scalable BLoC + Repository architecture.",
-    tags: ["Flutter", "Dart", "BLoC", "shared_preferences", "lottie", "carousel_slider", "provider"],
+    tags: [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "shared_preferences",
+      "lottie",
+      "carousel_slider",
+      "provider",
+    ],
     links: { github: "https://github.com/cybersleuth0/ShopSphere" },
   },
   {
@@ -32,7 +40,9 @@ const projects = [
     description:
       "Offline-first To‑Do application with fast local storage using sqflite and Cubit for state management, designed for reliability without network connectivity.",
     tags: ["Flutter", "Dart", "Cubit", "Sqflite"],
-    links: { github: "https://github.com/cybersleuth0/ToDo_offline_Database_Cubit" },
+    links: {
+      github: "https://github.com/cybersleuth0/ToDo_offline_Database_Cubit",
+    },
   },
   {
     title: "NewsApp",
@@ -71,7 +81,9 @@ const skills = [
 
 const miniSlides = [
   ({ className = "" }: { className?: string }) => (
-    <div className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}>
+    <div
+      className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}
+    >
       <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4 flex flex-col">
         <div className="flex items-center justify-between mb-3">
           <div className="h-3 w-36 rounded bg-muted" />
@@ -133,9 +145,15 @@ function ChatPreview() {
   const steps = [
     { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
     { from: "client", text: "I have a tight deadline and no time to debug..." },
-    { from: "you", text: "Share the crash logs and I’ll take a look — I can fix it today." },
+    {
+      from: "you",
+      text: "Share the crash logs and I’ll take a look — I can fix it today.",
+    },
     { from: "client", text: "That would be amazing, thank you!" },
-    { from: "you", text: "Done. I pushed a patch and added tests. Can you try the build?" },
+    {
+      from: "you",
+      text: "Done. I pushed a patch and added tests. Can you try the build?",
+    },
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ];
 
@@ -181,7 +199,9 @@ function ChatPreview() {
               transition={{ duration: 0.35, delay }}
               className={`max-w-[78%] ${s.from === "you" ? "ml-auto text-right" : "mr-auto text-left"}`}
             >
-              <div className={`inline-block rounded-md px-2 py-1 text-[11px] leading-tight ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+              <div
+                className={`inline-block rounded-md px-2 py-1 text-[11px] leading-tight ${s.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
+              >
                 {s.text}
               </div>
             </motion.div>
@@ -333,7 +353,6 @@ export default function Index() {
               </div>
             </motion.div>
 
-
             {/* Persistent chat panel beside device */}
             <div className="mt-6 md:mt-0 md:ml-6">
               <ChatPanel />
@@ -348,7 +367,7 @@ export default function Index() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <h2 className="text-2xl font-bold">Project i build till now</h2>
-                          </div>
+            </div>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, idx) => (
@@ -383,7 +402,11 @@ export default function Index() {
                     </div>
                     <div className="mt-4 flex gap-2">
                       <Button asChild size="sm">
-                        <a href={p.links.github} target="_blank" rel="noreferrer noopener">
+                        <a
+                          href={p.links.github}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
                           <Code2 className="mr-1 h-4 w-4" /> Source
                         </a>
                       </Button>
@@ -513,7 +536,11 @@ export default function Index() {
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="https://linkedin.com/in/ayushshende0" target="_blank" rel="noreferrer noopener">
+                <a
+                  href="https://linkedin.com/in/ayushshende0"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   Connect on LinkedIn
                 </a>
               </Button>

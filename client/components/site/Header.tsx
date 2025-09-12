@@ -42,7 +42,9 @@ export default function Header() {
               </span>
               <div className="leading-tight">
                 <p className="font-bold">Ayush Shende</p>
-                <p className="text-xs text-muted-foreground">Flutter Developer</p>
+                <p className="text-xs text-muted-foreground">
+                  Flutter Developer
+                </p>
               </div>
             </Link>
 
@@ -55,7 +57,8 @@ export default function Header() {
                 href="https://github.com/cybersleuth0"
                 aria-label="GitHub"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                target="_blank" rel="noreferrer noopener"
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -63,7 +66,8 @@ export default function Header() {
                 href="https://linkedin.com/in/ayushshende0"
                 aria-label="LinkedIn"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                target="_blank" rel="noreferrer noopener"
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -84,19 +88,21 @@ export default function Header() {
                     <NavLinks onClick={() => setOpen(false)} />
                     <div className="flex items-center gap-3">
                       <a
-                href="https://github.com/cybersleuth0"
-                aria-label="GitHub"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                target="_blank" rel="noreferrer noopener"
-              >
+                        href="https://github.com/cybersleuth0"
+                        aria-label="GitHub"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
                         <Github className="h-5 w-5" />
                       </a>
                       <a
-                href="https://linkedin.com/in/ayushshende0"
-                aria-label="LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                target="_blank" rel="noreferrer noopener"
-              >
+                        href="https://linkedin.com/in/ayushshende0"
+                        aria-label="LinkedIn"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </div>
