@@ -513,7 +513,7 @@ export default function Index() {
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="https://linkedin.com/in/ayushshende0">
+                <a href="https://linkedin.com/in/ayushshende0" target="_blank" rel="noreferrer noopener">
                   Connect on LinkedIn
                 </a>
               </Button>
