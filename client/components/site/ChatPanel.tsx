@@ -74,7 +74,7 @@ export default function ChatPanel() {
   }, [convIndex]);
 
   return (
-    <Card className="mt-[22px] md:mt-8 w-full md:w-96 pt-5 lg:pt-0 max-[991px]:w-[409px] max-[991px]:pl-[19px]">
+    <Card className="mx-auto mt-[22px] md:mt-8 w-full max-w-[420px] md:w-96 pt-5 lg:pt-0">
       <CardContent>
         <div className="w-full">
           {/* Device border */}
