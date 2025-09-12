@@ -14,6 +14,13 @@ import ChatPanel from "@/components/site/ChatPanel";
 
 const projects = [
   {
+    title: "ShopSphere",
+    description:
+      "Modern cross‑platform e‑commerce app with auth, product listings, cart, profiles and theme switching, built with a scalable BLoC + Repository architecture.",
+    tags: ["Flutter", "Dart", "BLoC", "shared_preferences", "lottie", "carousel_slider", "provider"],
+    links: { github: "https://github.com/cybersleuth0/ShopSphere" },
+  },
+  {
     title: "Expenso",
     description:
       "Cross-platform personal expense tracker with CRUD, transaction filtering by date and category, and dynamic data visualizations for spending analysis. Built with Flutter and Bloc architecture.",
@@ -40,13 +47,6 @@ const projects = [
       "Firebase-synced note-taking app with real-time Firestore storage, authentication, and Bloc-based state management for scalable interactions.",
     tags: ["Flutter", "Dart", "Firebase", "Firestore"],
     links: { github: "https://github.com/cybersleuth0/cloud-notes" },
-  },
-  {
-    title: "ShopSphere",
-    description:
-      "Modern cross‑platform e‑commerce app with auth, product listings, cart, profiles and theme switching, built with a scalable BLoC + Repository architecture.",
-    tags: ["Flutter", "Dart", "BLoC", "shared_preferences", "lottie", "carousel_slider", "provider"],
-    links: { github: "https://github.com/cybersleuth0/ShopSphere" },
   },
 ];
 
@@ -264,7 +264,7 @@ export default function Index() {
               </h1>
               <p className="mt-4 text-muted-foreground max-w-prose">
                 Flutter developer focused on craft, performance and smooth
-                animations. I turn ideas into polished, production‑ready apps.
+                animations. I turn ideas into polished, production���ready apps.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Button asChild>
