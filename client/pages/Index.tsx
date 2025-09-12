@@ -264,7 +264,7 @@ export default function Index() {
               </h1>
               <p className="mt-4 text-muted-foreground max-w-prose">
                 Flutter developer focused on craft, performance and smooth
-                animations. I turn ideas into polished, production���ready apps.
+                animations. I turn ideas into polished, production‑ready apps.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Button asChild>
@@ -347,11 +347,8 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-bold">Selected Projects</h2>
-              <p className="text-muted-foreground mt-1">
-                A few apps I loved building
-              </p>
-            </div>
+              <h2 className="text-2xl font-bold">Project i build till now</h2>
+                          </div>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, idx) => (
