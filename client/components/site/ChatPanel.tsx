@@ -105,8 +105,12 @@ export default function ChatPanel() {
                       className={`flex ${isYou ? "justify-end" : "justify-start"}`}
                     >
                       <div className={`${isYou ? "text-right" : "text-left"}`}>
-                        <div className="mb-1 text-[10px] uppercase tracking-wide text-muted-foreground/70">{name}</div>
-                        <div className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${isYou ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                        <div className="mb-1 text-[10px] uppercase tracking-wide text-muted-foreground/70">
+                          {name}
+                        </div>
+                        <div
+                          className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${isYou ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
+                        >
                           {m.text}
                         </div>
                       </div>
