@@ -379,7 +379,7 @@ export default function Index() {
                     </div>
                     <div className="mt-4 flex gap-2">
                       <Button asChild size="sm">
-                        <a href={p.links.github}>
+                        <a href={p.links.github} target="_blank" rel="noreferrer noopener">
                           <Code2 className="mr-1 h-4 w-4" /> Source
                         </a>
                       </Button>
