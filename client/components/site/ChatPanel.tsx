@@ -74,11 +74,11 @@ export default function ChatPanel() {
   }, [convIndex]);
 
   return (
-    <Card className="mt-[22px] md:mt-8 w-full md:w-96 pt-5 lg:pt-0">
+    <Card className="mt-[22px] md:mt-8 w-full md:w-96 pt-5 lg:pt-0 max-[991px]:w-[409px] max-[991px]:pl-[19px]">
       <CardContent>
         <div className="w-full">
           {/* Device border */}
-          <div className="relative h-[440px] md:h-[500px] lg:h-[560px] rounded-md bg-transparent overflow-hidden">
+          <div className="relative h-[500px] md:h-[560px] lg:h-[600px] rounded-md bg-transparent overflow-hidden">
             {/* Top bezel */}
             <div className="h-8 bg-transparent flex items-center px-3 gap-3">
               <div className="h-2 w-2 rounded-full bg-red-500/60" />
