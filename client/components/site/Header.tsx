@@ -63,6 +63,7 @@ export default function Header() {
                 href="https://linkedin.com/in/ayushshende0"
                 aria-label="LinkedIn"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                target="_blank" rel="noreferrer noopener"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -91,10 +92,11 @@ export default function Header() {
                         <Github className="h-5 w-5" />
                       </a>
                       <a
-                        href="https://linkedin.com/in/ayushshende0"
-                        aria-label="LinkedIn"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                      >
+                href="https://linkedin.com/in/ayushshende0"
+                aria-label="LinkedIn"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                target="_blank" rel="noreferrer noopener"
+              >
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </div>
