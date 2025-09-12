@@ -55,6 +55,7 @@ export default function Header() {
                 href="https://github.com/cybersleuth0"
                 aria-label="GitHub"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                target="_blank" rel="noreferrer noopener"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -82,10 +83,11 @@ export default function Header() {
                     <NavLinks onClick={() => setOpen(false)} />
                     <div className="flex items-center gap-3">
                       <a
-                        href="https://github.com/cybersleuth0"
-                        aria-label="GitHub"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
-                      >
+                href="https://github.com/cybersleuth0"
+                aria-label="GitHub"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
+                target="_blank" rel="noreferrer noopener"
+              >
                         <Github className="h-5 w-5" />
                       </a>
                       <a
