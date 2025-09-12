@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
@@ -94,18 +95,21 @@ export default function ChatPanel() {
               <div className="h-full w-full overflow-hidden pr-2 flex flex-col justify-end gap-3">
                 {conversations[convIndex].map((m, i) => {
                   const visible = i < revealedCount;
+                  const isYou = m.from === "you";
+                  const name = isYou ? "Ayush" : "Client";
                   return (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 8 }}
                       transition={{ duration: 0.35 }}
-                      className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}
+                      className={`flex ${isYou ? "justify-end" : "justify-start"}`}
                     >
-                      <div
-                        className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
-                      >
-                        {m.text}
+                      <div className={`${isYou ? "text-right" : "text-left"}`}>
+                        <div className="mb-1 text-[10px] uppercase tracking-wide text-muted-foreground/70">{name}</div>
+                        <div className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${isYou ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                          {m.text}
+                        </div>
                       </div>
                     </motion.div>
                   );
