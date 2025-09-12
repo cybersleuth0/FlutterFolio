@@ -6,24 +6,42 @@ const conversations = [
   [
     { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
     { from: "client", text: "I have a tight deadline and no time to debug..." },
-    { from: "you", text: "Share the crash logs and I’ll take a look — I can fix it today." },
+    {
+      from: "you",
+      text: "Share the crash logs and I’ll take a look — I can fix it today.",
+    },
     { from: "client", text: "That would be amazing, thank you!" },
-    { from: "you", text: "Done. I pushed a patch and added tests. Can you try the build?" },
+    {
+      from: "you",
+      text: "Done. I pushed a patch and added tests. Can you try the build?",
+    },
     { from: "client", text: "It works now — you're a lifesaver! 🙌" },
   ],
   [
     { from: "client", text: "Could we add a dark mode toggle?" },
-    { from: "you", text: "Absolutely. Do you want it to follow the system theme as well?" },
+    {
+      from: "you",
+      text: "Absolutely. Do you want it to follow the system theme as well?",
+    },
     { from: "client", text: "Yes, system default plus a switch in settings." },
-    { from: "you", text: "Implemented both with saved preference. Please try the latest build." },
+    {
+      from: "you",
+      text: "Implemented both with saved preference. Please try the latest build.",
+    },
     { from: "client", text: "Looks great — thanks!" },
     { from: "you", text: "Shipped with tests and accessibility checks." },
   ],
   [
     { from: "client", text: "The app feels slow on startup." },
-    { from: "you", text: "Profiled it — heavy modules were eager-loaded. I’ve moved them to lazy load." },
+    {
+      from: "you",
+      text: "Profiled it — heavy modules were eager-loaded. I’ve moved them to lazy load.",
+    },
     { from: "client", text: "Anything I need to change on my side?" },
-    { from: "you", text: "No action needed. Update v1.0.3 reduces cold start by ~40%." },
+    {
+      from: "you",
+      text: "No action needed. Update v1.0.3 reduces cold start by ~40%.",
+    },
     { from: "client", text: "Much faster now — perfect!" },
   ],
 ];
@@ -42,7 +60,7 @@ export default function ChatPanel() {
           window.setTimeout(() => {
             setRevealedCount(0);
             setConvIndex((ix) => (ix + 1) % conversations.length);
-          }, 1600)
+          }, 1600),
         );
         return;
       }
@@ -66,7 +84,9 @@ export default function ChatPanel() {
               <div className="h-2 w-2 rounded-full bg-red-500/60" />
               <div className="h-2 w-2 rounded-full bg-yellow-400/60" />
               <div className="h-2 w-2 rounded-full bg-green-400/60" />
-              <div className="ml-auto text-xs text-muted-foreground">Preview</div>
+              <div className="ml-auto text-xs text-muted-foreground">
+                Preview
+              </div>
             </div>
 
             {/* Screen area showing chat */}
@@ -82,7 +102,9 @@ export default function ChatPanel() {
                       transition={{ duration: 0.35 }}
                       className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}
                     >
-                      <div className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                      <div
+                        className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
+                      >
                         {m.text}
                       </div>
                     </motion.div>
