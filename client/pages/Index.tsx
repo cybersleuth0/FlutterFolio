@@ -41,6 +41,13 @@ const projects = [
     tags: ["Flutter", "Dart", "Firebase", "Firestore"],
     links: { github: "https://github.com/cybersleuth0/cloud-notes" },
   },
+  {
+    title: "ShopSphere",
+    description:
+      "Modern cross‑platform e‑commerce app with auth, product listings, cart, profiles and theme switching, built with a scalable BLoC + Repository architecture.",
+    tags: ["Flutter", "Dart", "BLoC", "shared_preferences", "lottie", "carousel_slider", "provider"],
+    links: { github: "https://github.com/cybersleuth0/ShopSphere" },
+  },
 ];
 
 const skills = [
