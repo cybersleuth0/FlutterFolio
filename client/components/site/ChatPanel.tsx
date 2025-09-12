@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const messages = [
   { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
@@ -11,11 +12,17 @@ const messages = [
 ];
 
 export default function ChatPanel() {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const [revealedCount, setRevealedCount] = useState(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (el) el.scrollTop = el.scrollHeight;
+    const timers: number[] = [];
+    const reveal = (i: number) => {
+      if (i > messages.length) return;
+      setRevealedCount(i);
+      timers.push(window.setTimeout(() => reveal(i + 1), 800));
+    };
+    timers.push(window.setTimeout(() => reveal(1), 500));
+    return () => timers.forEach((t) => clearTimeout(t));
   }, []);
 
   return (
@@ -34,14 +41,23 @@ export default function ChatPanel() {
 
             {/* Screen area showing chat */}
             <div className="absolute left-3 right-3 top-12 bottom-3 rounded-sm bg-[#0b0b0b] overflow-hidden p-3">
-              <div ref={ref} className="h-full w-full overflow-y-auto pr-2 flex flex-col justify-end gap-3">
-                {messages.map((m, i) => (
-                  <div key={i} className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}>
-                    <div className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
-                      {m.text}
-                    </div>
-                  </div>
-                ))}
+              <div className="h-full w-full overflow-hidden pr-2 flex flex-col justify-end gap-3">
+                {messages.map((m, i) => {
+                  const visible = i < revealedCount;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 8 }}
+                      transition={{ duration: 0.35 }}
+                      className={`flex ${m.from === "you" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div className={`inline-block px-3 py-2 rounded-lg text-[13px] leading-tight ${m.from === "you" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+                        {m.text}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
