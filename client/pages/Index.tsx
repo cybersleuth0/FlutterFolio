@@ -15,6 +15,7 @@ import PhoneScene from "@/components/site/PhoneScene";
 import PointerOrbs from "@/components/site/PointerOrbs";
 import Tilt from "@/components/ui/tilt";
 import { Progress } from "@/components/ui/progress";
+import HireMeFloat from "@/components/site/HireMeFloat";
 
 const projects = [
   {
