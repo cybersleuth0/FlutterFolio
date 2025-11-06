@@ -291,10 +291,8 @@ export default function Index() {
                 work
               </div>
               <h1 className="mt-6 text-4xl/tight font-extrabold sm:text-5xl/tight">
-                <p>
-                  Hi, I’m Ayush Shende — I build delightful mobile apps with
-                  Flutter
-                </p>
+                <p>Crafting pixel‑perfect Flutter experiences</p>
+                <p className="mt-2 text-2xl font-semibold text-foreground/80">from idea to polished app.</p>
               </h1>
               <p className="mt-4 text-muted-foreground max-w-prose">
                 Flutter developer focused on craft, performance and smooth
