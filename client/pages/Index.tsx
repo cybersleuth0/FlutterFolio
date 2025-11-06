@@ -384,7 +384,8 @@ export default function Index() {
                 viewport={{ once: false, amount: 0.25 }}
                 transition={{ duration: 0.55, delay: idx * 0.06 }}
               >
-                <Card className="group">
+                <Tilt className="group">
+                  <Card className="group">
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       {p.title}
@@ -419,6 +420,7 @@ export default function Index() {
                     </div>
                   </CardContent>
                 </Card>
+                </Tilt>
               </motion.div>
             ))}
           </div>
