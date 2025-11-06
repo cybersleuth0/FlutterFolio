@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Smartphone, Github, Linkedin } from "lucide-react";
+import ThemeToggle from "@/components/site/ThemeToggle";
 
 const nav = [
   { href: "#about", label: "About" },
