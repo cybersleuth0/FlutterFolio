@@ -529,6 +529,31 @@ export default function Index() {
               </motion.div>
             ))}
           </div>
+
+          {/* proficiency bars */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {proficiencies.map((p, i) => (
+              <motion.div
+                key={p.name}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.25 }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+              >
+                <Card>
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-base font-semibold">{p.name}</CardTitle>
+                      <span className="text-sm text-muted-foreground">{p.level}%</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <Progress value={p.level} />
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
