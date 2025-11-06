@@ -100,11 +100,6 @@ export default function PhoneScene() {
       aria-label="3D phone with Flutter logo"
       role="img"
     >
-      <Canvas dpr={[1, 1.75]} camera={{ fov: 28, position: [0, 0, 6] }}>
-        <Suspense fallback={null}>
-          <SceneInner mouse={mouse.current} />
-        </Suspense>
-      </Canvas>
       {/* glow accents */}
       <div className="pointer-events-none absolute -inset-6 -z-10 bg-[radial-gradient(500px_120px_at_30%_10%,theme(colors.cyan.500/.25),transparent),radial-gradient(400px_120px_at_80%_0%,theme(colors.violet.500/.2),transparent)] blur-2xl" />
     </div>
