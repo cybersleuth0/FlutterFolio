@@ -558,22 +558,27 @@ export default function Index() {
                 viewport={{ once: false, amount: 0.25 }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
               >
-                <Card>
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-semibold">{p.name}</CardTitle>
-                      <span className="text-sm text-muted-foreground">{p.level}%</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="relative">
-                      <Progress value={p.level} />
-                      <span className="absolute -top-7" style={{ left: `calc(${p.level}% - 1.5rem)` }}>
-                        <span className="inline-block rounded bg-secondary px-2 py-0.5 text-[10px] border">{p.level}%</span>
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Card>
+                      <CardHeader className="pb-2">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-base font-semibold">{p.name}</CardTitle>
+                          <span className="text-sm text-muted-foreground">{p.level}%</span>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="relative">
+                          <Progress value={p.level} />
+                          <span className="absolute -top-7" style={{ left: `calc(${p.level}% - 1.5rem)` }}>
+                            <span className="inline-block rounded bg-secondary px-2 py-0.5 text-[10px] border">{p.level}%</span>
+                          </span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TooltipTrigger>
+                  <TooltipContent>{p.note}</TooltipContent>
+                </Tooltip>
               </motion.div>
             ))}
           </div>
