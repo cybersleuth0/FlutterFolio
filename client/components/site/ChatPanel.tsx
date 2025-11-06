@@ -130,7 +130,7 @@ export default function ChatPanel() {
                 {/* typing indicator */}
                 {typingIndex !== null && (
                   <div className={`flex ${conversations[convIndex][typingIndex!].from === 'you' ? 'justify-end' : 'justify-start'}`}>
-                    <div className="inline-flex items-center gap-1 rounded-lg bg-muted px-3 py-2">
+                    <div className="inline-flex items-center gap-1 rounded-lg bg-muted px-3 py-2" aria-live="polite">
                       <span className="sr-only">Typing…</span>
                       <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:0ms]" />
                       <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:120ms]" />
