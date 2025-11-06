@@ -83,6 +83,15 @@ const skills = [
   },
 ];
 
+const proficiencies = [
+  { name: "Flutter", level: 90 },
+  { name: "Dart", level: 90 },
+  { name: "State Management (BLoC/Riverpod)", level: 86 },
+  { name: "Animations & UX", level: 84 },
+  { name: "Firebase / Firestore", level: 78 },
+  { name: "Testing & CI", level: 72 },
+];
+
 const miniSlides = [
   ({ className = "" }: { className?: string }) => (
     <div
