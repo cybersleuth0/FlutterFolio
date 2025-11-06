@@ -400,7 +400,7 @@ export default function Index() {
                 transition={{ duration: 0.55, delay: idx * 0.06 }}
               >
                 <Tilt className="group">
-                  <Card className="group">
+                  <Card className="group transition-colors shadow-sm hover:shadow-xl">
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
                       {p.title}
@@ -411,7 +411,7 @@ export default function Index() {
                     <CardDescription>{p.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border bg-black/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
                       <MiniPreview />
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -506,7 +506,7 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-2xl font-bold">Skills</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {skills.map((s, idx) => (
+            {filteredSkills.map((s, idx) => (
               <motion.div
                 key={s.group}
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -536,6 +536,13 @@ export default function Index() {
             ))}
           </div>
 
+          {/* skills filter */}
+          <div className="mt-8 flex flex-wrap gap-2">
+            {['All','Languages','Frameworks','Tools','Databases','Other'].map((f) => (
+              <Button key={f} size="sm" variant="outline" onClick={() => setSkillFilter(f as any)} className={`h-8 ${skillFilter===f? 'bg-accent/20' : ''}`}>{f}</Button>
+            ))}
+          </div>
+
           {/* proficiency bars */}
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {proficiencies.map((p, i) => (
@@ -554,7 +561,12 @@ export default function Index() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <Progress value={p.level} />
+                    <div className="relative">
+                      <Progress value={p.level} />
+                      <span className="absolute -top-7" style={{ left: `calc(${p.level}% - 1.5rem)` }}>
+                        <span className="inline-block rounded bg-secondary px-2 py-0.5 text-[10px] border">{p.level}%</span>
+                      </span>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
