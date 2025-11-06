@@ -396,6 +396,9 @@ export default function Index() {
                     <CardDescription>{p.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border bg-black/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <MiniPreview />
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {p.tags.map((t) => (
                         <Badge
