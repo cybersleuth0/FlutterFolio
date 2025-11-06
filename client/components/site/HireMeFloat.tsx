@@ -12,7 +12,10 @@ export default function HireMeFloat() {
   if (!show) return null;
   return (
     <div className="fixed bottom-6 right-6 z-40">
-      <Button asChild className="shadow-lg animate-in fade-in slide-in-from-bottom-2">
+      <Button
+        asChild
+        className="shadow-lg animate-in fade-in slide-in-from-bottom-2"
+      >
         <a href="#contact" aria-label="Hire Me">
           Hire Me
         </a>

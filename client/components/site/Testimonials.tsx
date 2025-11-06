@@ -5,22 +5,19 @@ const items = [
   {
     name: "Rahul S.",
     role: "Founder, FinTech",
-    text:
-      "Ayush rescued our release with clean Flutter code and fast communication. We shipped on time and the app performance improved significantly.",
+    text: "Ayush rescued our release with clean Flutter code and fast communication. We shipped on time and the app performance improved significantly.",
     rating: 5,
   },
   {
     name: "Priya K.",
     role: "PM, E‑commerce",
-    text:
-      "Pixel‑perfect UI and great attention to detail. The checkout UX increased conversions and reduced drop‑offs.",
+    text: "Pixel‑perfect UI and great attention to detail. The checkout UX increased conversions and reduced drop‑offs.",
     rating: 5,
   },
   {
     name: "Aditya V.",
     role: "CTO, HealthTech",
-    text:
-      "Solid architecture and testing. Handover was smooth and the codebase is easy to maintain.",
+    text: "Solid architecture and testing. Handover was smooth and the codebase is easy to maintain.",
     rating: 5,
   },
 ];

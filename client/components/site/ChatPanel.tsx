@@ -99,7 +99,10 @@ export default function ChatPanel() {
             {/* Screen area showing chat */}
             <div className="absolute left-3 right-3 top-12 bottom-3 rounded-md bg-[#0b0b0b] overflow-hidden p-3">
               {/* screen glare */}
-              <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay"
+              />
               <div className="relative h-full w-full overflow-hidden pr-2 flex flex-col justify-end gap-3">
                 {conversations[convIndex].map((m, i) => {
                   const visible = i < revealedCount;
@@ -129,8 +132,13 @@ export default function ChatPanel() {
 
                 {/* typing indicator */}
                 {typingIndex !== null && (
-                  <div className={`flex ${conversations[convIndex][typingIndex!].from === 'you' ? 'justify-end' : 'justify-start'}`}>
-                    <div className="inline-flex items-center gap-1 rounded-lg bg-muted px-3 py-2" aria-live="polite">
+                  <div
+                    className={`flex ${conversations[convIndex][typingIndex!].from === "you" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className="inline-flex items-center gap-1 rounded-lg bg-muted px-3 py-2"
+                      aria-live="polite"
+                    >
                       <span className="sr-only">Typing…</span>
                       <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:0ms]" />
                       <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:120ms]" />

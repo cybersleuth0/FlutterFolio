@@ -18,7 +18,11 @@ import { Progress } from "@/components/ui/progress";
 import HireMeFloat from "@/components/site/HireMeFloat";
 import Testimonials from "@/components/site/Testimonials";
 import Metrics from "@/components/site/Metrics";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const projects = [
   {
@@ -90,9 +94,21 @@ const skills = [
 const proficiencies = [
   { name: "Flutter", level: 90, note: "4+ years • Endorsed by 15+ developers" },
   { name: "Dart", level: 90, note: "4+ years • Strong language fundamentals" },
-  { name: "State Management (BLoC/Riverpod)", level: 86, note: "Robust patterns in production apps" },
-  { name: "Animations & UX", level: 84, note: "Smooth, 60fps micro‑interactions" },
-  { name: "Firebase / Firestore", level: 78, note: "Auth, Realtime, FCM, Firestore" },
+  {
+    name: "State Management (BLoC/Riverpod)",
+    level: 86,
+    note: "Robust patterns in production apps",
+  },
+  {
+    name: "Animations & UX",
+    level: 84,
+    note: "Smooth, 60fps micro‑interactions",
+  },
+  {
+    name: "Firebase / Firestore",
+    level: 78,
+    note: "Auth, Realtime, FCM, Firestore",
+  },
   { name: "Testing & CI", level: 72, note: "Unit, widget tests, pipelines" },
 ];
 
@@ -202,7 +218,10 @@ function ChatPreview() {
 
   return (
     <div className="h-full w-full p-2 flex flex-col justify-end overflow-hidden relative">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay"
+      />
       <div className="space-y-2 h-full pr-2 box-border relative">
         {steps.map((s, i) => {
           const orderFromBottom = n - 1 - i; // 0 = bottom
@@ -270,8 +289,12 @@ function MiniPreview() {
 }
 
 export default function Index() {
-  const [skillFilter, setSkillFilter] = useState<'All'|'Languages'|'Frameworks'|'Tools'|'Databases'|'Other'>('All');
-  const filteredSkills = skills.filter(s => skillFilter==='All' ? true : s.group===skillFilter);
+  const [skillFilter, setSkillFilter] = useState<
+    "All" | "Languages" | "Frameworks" | "Tools" | "Databases" | "Other"
+  >("All");
+  const filteredSkills = skills.filter((s) =>
+    skillFilter === "All" ? true : s.group === skillFilter,
+  );
   return (
     <main className="relative">
       <HireMeFloat />
@@ -300,7 +323,9 @@ export default function Index() {
               </div>
               <h1 className="mt-6 text-4xl/tight font-extrabold sm:text-5xl/tight">
                 <p>Crafting pixel‑perfect Flutter experiences</p>
-                <p className="mt-2 text-2xl font-semibold text-foreground/80">from idea to polished app.</p>
+                <p className="mt-2 text-2xl font-semibold text-foreground/80">
+                  from idea to polished app.
+                </p>
               </h1>
               <p className="mt-4 text-muted-foreground max-w-prose">
                 Flutter developer focused on craft, performance and smooth
@@ -380,7 +405,10 @@ export default function Index() {
           </div>
         </div>
         <div className="mt-10 flex justify-center" aria-hidden>
-          <a href="#projects" className="inline-flex flex-col items-center text-muted-foreground hover:text-foreground transition-colors">
+          <a
+            href="#projects"
+            className="inline-flex flex-col items-center text-muted-foreground hover:text-foreground transition-colors"
+          >
             <span className="text-xs mb-1">Scroll</span>
             <span className="animate-bounce">↓</span>
           </a>
@@ -406,43 +434,43 @@ export default function Index() {
               >
                 <Tilt className="group">
                   <Card className="group transition-colors shadow-sm hover:shadow-xl">
-                  <CardHeader className="transition-colors group-hover:bg-accent/5">
-                    <CardTitle className="flex items-center justify-between">
-                      {p.title}
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
-                        <Smartphone className="h-4 w-4" /> Flutter
-                      </span>
-                    </CardTitle>
-                    <CardDescription>{p.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
-                      <MiniPreview />
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {p.tags.map((t) => (
-                        <Badge
-                          key={t}
-                          variant="outline"
-                          className="px-2.5 py-0.5"
-                        >
-                          {t}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="mt-4 flex gap-2">
-                      <Button asChild size="sm">
-                        <a
-                          href={p.links.github}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <Code2 className="mr-1 h-4 w-4" /> Source
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+                    <CardHeader className="transition-colors group-hover:bg-accent/5">
+                      <CardTitle className="flex items-center justify-between">
+                        {p.title}
+                        <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
+                          <Smartphone className="h-4 w-4" /> Flutter
+                        </span>
+                      </CardTitle>
+                      <CardDescription>{p.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
+                        <MiniPreview />
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <Badge
+                            key={t}
+                            variant="outline"
+                            className="px-2.5 py-0.5"
+                          >
+                            {t}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex gap-2">
+                        <Button asChild size="sm">
+                          <a
+                            href={p.links.github}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            <Code2 className="mr-1 h-4 w-4" /> Source
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </Tilt>
               </motion.div>
             ))}
@@ -543,8 +571,23 @@ export default function Index() {
 
           {/* skills filter */}
           <div className="mt-8 flex flex-wrap gap-2">
-            {['All','Languages','Frameworks','Tools','Databases','Other'].map((f) => (
-              <Button key={f} size="sm" variant="outline" onClick={() => setSkillFilter(f as any)} className={`h-8 ${skillFilter===f? 'bg-accent/20' : ''}`}>{f}</Button>
+            {[
+              "All",
+              "Languages",
+              "Frameworks",
+              "Tools",
+              "Databases",
+              "Other",
+            ].map((f) => (
+              <Button
+                key={f}
+                size="sm"
+                variant="outline"
+                onClick={() => setSkillFilter(f as any)}
+                className={`h-8 ${skillFilter === f ? "bg-accent/20" : ""}`}
+              >
+                {f}
+              </Button>
             ))}
           </div>
 
@@ -563,15 +606,24 @@ export default function Index() {
                     <Card>
                       <CardHeader className="pb-2">
                         <div className="flex items-center justify-between">
-                          <CardTitle className="text-base font-semibold">{p.name}</CardTitle>
-                          <span className="text-sm text-muted-foreground">{p.level}%</span>
+                          <CardTitle className="text-base font-semibold">
+                            {p.name}
+                          </CardTitle>
+                          <span className="text-sm text-muted-foreground">
+                            {p.level}%
+                          </span>
                         </div>
                       </CardHeader>
                       <CardContent>
                         <div className="relative">
                           <Progress value={p.level} />
-                          <span className="absolute -top-7" style={{ left: `calc(${p.level}% - 1.5rem)` }}>
-                            <span className="inline-block rounded bg-secondary px-2 py-0.5 text-[10px] border">{p.level}%</span>
+                          <span
+                            className="absolute -top-7"
+                            style={{ left: `calc(${p.level}% - 1.5rem)` }}
+                          >
+                            <span className="inline-block rounded bg-secondary px-2 py-0.5 text-[10px] border">
+                              {p.level}%
+                            </span>
                           </span>
                         </div>
                       </CardContent>
