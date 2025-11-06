@@ -53,6 +53,7 @@ export default function Header() {
             </nav>
 
             <div className="hidden md:flex items-center gap-3">
+              <ThemeToggle />
               <a
                 href="https://github.com/cybersleuth0"
                 aria-label="GitHub"
