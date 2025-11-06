@@ -358,8 +358,9 @@ export default function Index() {
               </div>
             </motion.div>
 
-            {/* Persistent chat panel beside device */}
-            <div className="mt-6 md:mt-0 md:ml-6">
+            {/* 3D interactive phone + chat preview */}
+            <div className="mt-6 md:mt-0 md:ml-6 space-y-6">
+              <PhoneScene />
               <ChatPanel />
             </div>
           </div>
