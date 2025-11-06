@@ -16,6 +16,8 @@ import PointerOrbs from "@/components/site/PointerOrbs";
 import Tilt from "@/components/ui/tilt";
 import { Progress } from "@/components/ui/progress";
 import HireMeFloat from "@/components/site/HireMeFloat";
+import Testimonials from "@/components/site/Testimonials";
+import Metrics from "@/components/site/Metrics";
 
 const projects = [
   {
