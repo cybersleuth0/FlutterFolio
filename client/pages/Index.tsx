@@ -11,6 +11,10 @@ import { Github, Linkedin, Sparkles, Smartphone, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import ChatPanel from "@/components/site/ChatPanel";
+import PhoneScene from "@/components/site/PhoneScene";
+import PointerOrbs from "@/components/site/PointerOrbs";
+import Tilt from "@/components/ui/tilt";
+import { Progress } from "@/components/ui/progress";
 
 const projects = [
   {
