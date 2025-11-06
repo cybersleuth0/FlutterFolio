@@ -199,7 +199,8 @@ function ChatPreview() {
 
   return (
     <div className="h-full w-full p-2 flex flex-col justify-end overflow-hidden relative">
-      <div className="space-y-2 h-full pr-2 box-border">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay" />
+      <div className="space-y-2 h-full pr-2 box-border relative">
         {steps.map((s, i) => {
           const orderFromBottom = n - 1 - i; // 0 = bottom
           const visible = orderFromBottom < revealedCount; // show when revealedCount > orderFromBottom
