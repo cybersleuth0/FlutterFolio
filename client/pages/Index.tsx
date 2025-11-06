@@ -269,6 +269,7 @@ export default function Index() {
   const filteredSkills = skills.filter(s => skillFilter==='All' ? true : s.group===skillFilter);
   return (
     <main className="relative">
+      <HireMeFloat />
       <PointerOrbs />
       {/* decorative background */}
       <div
