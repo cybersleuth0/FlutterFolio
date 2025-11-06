@@ -18,6 +18,7 @@ import { Progress } from "@/components/ui/progress";
 import HireMeFloat from "@/components/site/HireMeFloat";
 import Testimonials from "@/components/site/Testimonials";
 import Metrics from "@/components/site/Metrics";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const projects = [
   {
