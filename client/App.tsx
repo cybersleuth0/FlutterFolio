@@ -13,19 +13,23 @@ import Footer from "@/components/site/Footer";
 
 const queryClient = new QueryClient();
 
+import { ThemeProvider } from "next-themes";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
