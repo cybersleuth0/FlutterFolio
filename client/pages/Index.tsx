@@ -265,6 +265,8 @@ function MiniPreview() {
 }
 
 export default function Index() {
+  const [skillFilter, setSkillFilter] = useState<'All'|'Languages'|'Frameworks'|'Tools'|'Databases'|'Other'>('All');
+  const filteredSkills = skills.filter(s => skillFilter==='All' ? true : s.group===skillFilter);
   return (
     <main className="relative">
       <PointerOrbs />
