@@ -258,6 +258,7 @@ function MiniPreview() {
 export default function Index() {
   return (
     <main className="relative">
+      <PointerOrbs />
       {/* decorative background */}
       <div
         aria-hidden
