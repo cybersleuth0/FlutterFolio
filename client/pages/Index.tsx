@@ -406,7 +406,7 @@ export default function Index() {
               >
                 <Tilt className="group">
                   <Card className="group transition-colors shadow-sm hover:shadow-xl">
-                  <CardHeader>
+                  <CardHeader className="transition-colors group-hover:bg-accent/5">
                     <CardTitle className="flex items-center justify-between">
                       {p.title}
                       <span className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground">
