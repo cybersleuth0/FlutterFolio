@@ -15,6 +15,11 @@
     /* Dark aesthetic as default */
     --background: 220 12% 6%; /* deep navy */
     --foreground: 210 40% 98%; /* near-white text */
+    /* Accents */
+    --accent-success: 152 83% 31%; /* #10b981 */
+    --accent-warning: 42 96% 52%; /* #f59e0b */
+    --accent-error: 0 84% 60%; /* #ef4444 */
+    --glass-bg: 0 0% 100% / 5%;
 
     --card: 220 12% 10%;
     --card-foreground: 210 40% 98%;
@@ -55,6 +60,10 @@
 
   .light {
     /* Optional light theme when .light class is applied */
+    --accent-success: 152 83% 31%;
+    --accent-warning: 42 96% 52%;
+    --accent-error: 0 84% 60%;
+    --glass-bg: 0 0% 100% / 45%;
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
 
@@ -84,6 +93,13 @@
     --ring: 203 97% 31%;
 
     --radius: 0.75rem;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border rounded-xl backdrop-blur-md;
+    background: hsl(var(--glass-bg));
   }
 }
 
