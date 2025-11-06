@@ -87,12 +87,12 @@ const skills = [
 ];
 
 const proficiencies = [
-  { name: "Flutter", level: 90 },
-  { name: "Dart", level: 90 },
-  { name: "State Management (BLoC/Riverpod)", level: 86 },
-  { name: "Animations & UX", level: 84 },
-  { name: "Firebase / Firestore", level: 78 },
-  { name: "Testing & CI", level: 72 },
+  { name: "Flutter", level: 90, note: "4+ years • Endorsed by 15+ developers" },
+  { name: "Dart", level: 90, note: "4+ years • Strong language fundamentals" },
+  { name: "State Management (BLoC/Riverpod)", level: 86, note: "Robust patterns in production apps" },
+  { name: "Animations & UX", level: 84, note: "Smooth, 60fps micro‑interactions" },
+  { name: "Firebase / Firestore", level: 78, note: "Auth, Realtime, FCM, Firestore" },
+  { name: "Testing & CI", level: 72, note: "Unit, widget tests, pipelines" },
 ];
 
 const miniSlides = [
