@@ -49,27 +49,34 @@ const conversations = [
 export default function ChatPanel() {
   const [convIndex, setConvIndex] = useState(0);
   const [revealedCount, setRevealedCount] = useState(0);
+  const [typingIndex, setTypingIndex] = useState<number | null>(0);
 
   useEffect(() => {
     const timers: number[] = [];
     const msgs = conversations[convIndex];
 
-    const reveal = (i: number) => {
-      if (i > msgs.length) {
+    const flow = (i: number) => {
+      if (i >= msgs.length) {
         timers.push(
           window.setTimeout(() => {
+            setTypingIndex(null);
             setRevealedCount(0);
             setConvIndex((ix) => (ix + 1) % conversations.length);
-          }, 1600),
+          }, 1400),
         );
         return;
       }
-      setRevealedCount(i);
-      timers.push(window.setTimeout(() => reveal(i + 1), 800));
+      setTypingIndex(i);
+      timers.push(
+        window.setTimeout(() => {
+          setRevealedCount((c) => Math.max(c, i + 1));
+          setTypingIndex(null);
+          flow(i + 1);
+        }, 700),
+      );
     };
 
-    timers.push(window.setTimeout(() => reveal(1), 500));
-
+    timers.push(window.setTimeout(() => flow(0), 500));
     return () => timers.forEach((t) => clearTimeout(t));
   }, [convIndex]);
 
@@ -78,7 +85,7 @@ export default function ChatPanel() {
       <CardContent>
         <div className="w-full">
           {/* Device border */}
-          <div className="relative h-[500px] md:h-[560px] lg:h-[600px] rounded-md bg-transparent overflow-hidden">
+          <div className="relative h-[500px] md:h-[560px] lg:h-[600px] rounded-xl bg-transparent overflow-hidden shadow-2xl shadow-black/30">
             {/* Top bezel */}
             <div className="h-8 bg-transparent flex items-center px-3 gap-3">
               <div className="h-2 w-2 rounded-full bg-red-500/60" />
@@ -90,8 +97,10 @@ export default function ChatPanel() {
             </div>
 
             {/* Screen area showing chat */}
-            <div className="absolute left-3 right-3 top-12 bottom-3 rounded-sm bg-[#0b0b0b] overflow-hidden p-3">
-              <div className="h-full w-full overflow-hidden pr-2 flex flex-col justify-end gap-3">
+            <div className="absolute left-3 right-3 top-12 bottom-3 rounded-md bg-[#0b0b0b] overflow-hidden p-3">
+              {/* screen glare */}
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(12deg,rgba(255,255,255,0.08),transparent_45%)] mix-blend-overlay" />
+              <div className="relative h-full w-full overflow-hidden pr-2 flex flex-col justify-end gap-3">
                 {conversations[convIndex].map((m, i) => {
                   const visible = i < revealedCount;
                   const isYou = m.from === "you";
@@ -117,6 +126,18 @@ export default function ChatPanel() {
                     </motion.div>
                   );
                 })}
+
+                {/* typing indicator */}
+                {typingIndex !== null && (
+                  <div className={`flex ${conversations[convIndex][typingIndex!].from === 'you' ? 'justify-end' : 'justify-start'}`}>
+                    <div className="inline-flex items-center gap-1 rounded-lg bg-muted px-3 py-2">
+                      <span className="sr-only">Typing…</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:0ms]" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:120ms]" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 animate-pulse [animation-delay:240ms]" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
