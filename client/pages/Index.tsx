@@ -580,6 +580,9 @@ export default function Index() {
         </div>
       </section>
 
+      <Testimonials />
+      <Metrics />
+
       {/* contact */}
       <section id="contact" className="scroll-mt-32 pt-20">
         <div className="mx-auto max-w-7xl px-4">
