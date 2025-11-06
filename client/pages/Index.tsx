@@ -372,6 +372,12 @@ export default function Index() {
             </div>
           </div>
         </div>
+        <div className="mt-10 flex justify-center" aria-hidden>
+          <a href="#projects" className="inline-flex flex-col items-center text-muted-foreground hover:text-foreground transition-colors">
+            <span className="text-xs mb-1">Scroll</span>
+            <span className="animate-bounce">↓</span>
+          </a>
+        </div>
       </section>
 
       {/* projects */}
