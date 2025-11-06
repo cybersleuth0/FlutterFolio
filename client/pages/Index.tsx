@@ -281,7 +281,7 @@ export default function Index() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-48 -z-10 overflow-hidden"
       >
-        <div className="mx-auto h-[420px] w-[1200px] max-w-none bg-[radial-gradient(800px_300px_at_50%_20%,theme(colors.cyan.400/.25),transparent),radial-gradient(600px_250px_at_20%_10%,theme(colors.primary.DEFAULT/.18),transparent),radial-gradient(600px_250px_at_80%_10%,theme(colors.blue.400/.18),transparent)] blur-2xl" />
+        <div className="mx-auto h-[460px] w-[1200px] max-w-none bg-[radial-gradient(900px_320px_at_50%_20%,theme(colors.cyan.400/.32),transparent),radial-gradient(700px_280px_at_20%_10%,theme(colors.primary.DEFAULT/.24),transparent),radial-gradient(700px_280px_at_80%_10%,theme(colors.violet.400/.22),transparent)] blur-2xl" />
       </div>
 
       {/* hero */}
