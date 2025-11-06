@@ -18,6 +18,7 @@ import { Progress } from "@/components/ui/progress";
 import HireMeFloat from "@/components/site/HireMeFloat";
 import Testimonials from "@/components/site/Testimonials";
 import Metrics from "@/components/site/Metrics";
+import CaseStudies from "@/components/site/CaseStudies";
 import {
   Tooltip,
   TooltipContent,
@@ -420,7 +421,7 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <h2 className="text-2xl font-bold">Project i build till now</h2>
+              <h2 className="text-2xl font-bold">Projects I've Built</h2>
             </div>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -477,6 +478,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Case Studies */}
+      <CaseStudies />
 
       {/* about */}
       <section id="about" className="scroll-mt-32 pt-20">
