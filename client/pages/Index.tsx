@@ -642,6 +642,7 @@ export default function Index() {
         </div>
       </section>
 
+      <FlutterPackages />
       <Testimonials />
       <Metrics />
 
