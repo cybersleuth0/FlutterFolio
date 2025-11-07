@@ -510,6 +510,121 @@ final count = context.watch<CounterProvider>().count;`,
     pubLikes: '4000+',
     lastUpdated: '2024',
   },
+  {
+    id: 'http',
+    name: 'http',
+    slug: 'http',
+    pubUrl: 'https://pub.dev/packages/http',
+    description: 'A composable, Future-based library for making HTTP requests. Great for simple REST integrations where you want minimal overhead.',
+    shortDescription: 'Lightweight HTTP client for Dart',
+    category: 'Network',
+    icon: '🔗',
+    featured: true,
+
+    proficiency: 85,
+    experienceYears: '2+ years',
+    projectsUsed: 12,
+
+    useCases: [
+      'Simple REST API integration',
+      'Lightweight clients without interceptors',
+      'Quick prototypes and MVPs',
+      'Streaming downloads and multipart uploads',
+    ],
+
+    keyFeatures: [
+      'Simple GET/POST/PUT/DELETE API',
+      'Supports headers, query parameters, and JSON bodies',
+      'Multipart file upload',
+      'Streamed requests and responses',
+      'Timeout configuration',
+      'Works on mobile, desktop, and server',
+    ],
+
+    advantages: [
+      'Lightweight and easy to learn',
+      'Great for simple use cases',
+      'Small dependency footprint',
+      'Part of Dart ecosystem, widely used',
+    ],
+
+    challenges: [
+      'No built-in interceptors (manual handling needed)',
+      'Fewer features than Dio for complex apps',
+      'Manual retry, auth refresh, and logging strategies',
+    ],
+
+    codeSnippets: [
+      {
+        title: 'Basic GET request',
+        description: 'Fetch JSON and decode it using dart:convert',
+        language: 'dart',
+        code: `import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<void> fetchUser(String id) async {
+  final url = Uri.parse('https://api.example.com/users/' + id);
+  final res = await http.get(url, headers: {
+    'Accept': 'application/json',
+  });
+  if (res.statusCode == 200) {
+    final data = jsonDecode(res.body);
+    print('User name: ' + data['name']);
+  } else {
+    throw Exception('Failed with status ' + res.statusCode.toString());
+  }
+}`,
+      },
+      {
+        title: 'POST with JSON body',
+        description: 'Send JSON payload and parse the response',
+        language: 'dart',
+        code: `import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<void> createPost(Map<String, dynamic> payload) async {
+  final url = Uri.parse('https://api.example.com/posts');
+  final res = await http.post(
+    url,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: jsonEncode(payload),
+  );
+  if (res.statusCode == 201) {
+    final data = jsonDecode(res.body);
+    print('Created with id: ' + data['id'].toString());
+  } else {
+    throw Exception('Create failed: ' + res.statusCode.toString());
+  }
+}`,
+      },
+    ],
+
+    alternatives: ['dio', 'chopper', 'retrofit'],
+    worksWellWith: ['provider', 'flutter_bloc', 'json_serializable'],
+
+    personalTake: 'Ideal when you want something simple without the overhead of interceptors. I often start with http for MVPs and switch to Dio if requirements grow (auth refresh, logging, retries).',
+
+    bestPractices: [
+      'Create a small wrapper service for cleaner API',
+      'Centralize base URL and headers',
+      'Decode/encode JSON with dart:convert',
+      'Handle non-200 responses explicitly',
+      'Set timeouts appropriate to your API',
+    ],
+
+    commonMistakes: [
+      'Sprinkling http calls across widgets',
+      'Not handling network timeouts and errors',
+      'Forgetting to set headers for JSON',
+    ],
+
+    officialDocs: 'https://pub.dev/packages/http',
+    pubLikes: '8000+',
+    lastUpdated: '2024',
+  },
 ];
 
 export const getPackageBySlug = (slug: string): FlutterPackage | undefined => {
