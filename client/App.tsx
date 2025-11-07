@@ -40,11 +40,13 @@ const container = document.getElementById("root")!;
 // Reuse root across HMR to avoid duplicate createRoot warnings
 const root = (window as any).__appRoot || createRoot(container);
 (root as any).render(<App />);
-;(window as any).__appRoot = root;
+(window as any).__appRoot = root;
 
 if (import.meta && (import.meta as any).hot) {
   (import.meta as any).hot.dispose(() => {
-    try { (root as any).unmount?.(); } catch {}
+    try {
+      (root as any).unmount?.();
+    } catch {}
     (window as any).__appRoot = undefined;
   });
 }
