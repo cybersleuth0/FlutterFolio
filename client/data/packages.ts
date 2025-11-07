@@ -266,7 +266,7 @@ dio.interceptors.add(InterceptorsWrapper(
     await _dio.post('/upload',
       data: formData,
       onSendProgress: (sent, total) {
-        print('Progress: ${(sent / total * 100).toStringAsFixed(0)}%');
+        print('Progress: \${(sent / total * 100).toStringAsFixed(0)}%');
       },
     );
   }
@@ -480,7 +480,7 @@ ChangeNotifierProvider(
 // In widget
 Consumer<CounterProvider>(
   builder: (context, counter, child) {
-    return Text('${counter.count}');
+    return Text('\${counter.count}');
   },
 )
 
