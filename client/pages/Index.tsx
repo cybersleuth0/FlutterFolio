@@ -19,6 +19,7 @@ import HireMeFloat from "@/components/site/HireMeFloat";
 import Testimonials from "@/components/site/Testimonials";
 import Metrics from "@/components/site/Metrics";
 import CaseStudies from "@/components/site/CaseStudies";
+import FlutterPackages from "@/components/site/FlutterPackages";
 import {
   Tooltip,
   TooltipContent,
