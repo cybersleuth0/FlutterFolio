@@ -37,7 +37,11 @@ export default function Testimonials() {
     const id = setInterval(() => setIndex((i) => (i + 1) % items.length), 5000);
     return () => clearInterval(id);
   }, []);
-  const visible = [items[index], items[(index + 1) % items.length], items[(index + 2) % items.length]];
+  const visible = [
+    items[index],
+    items[(index + 1) % items.length],
+    items[(index + 2) % items.length],
+  ];
   return (
     <section id="testimonials" className="scroll-mt-32 pt-20">
       <div className="mx-auto max-w-7xl px-4">
@@ -56,7 +60,13 @@ export default function Testimonials() {
               <div className="flex items-center gap-4 mb-4">
                 <Avatar className="h-12 w-12">
                   <AvatarImage src={(t as any).avatar} alt={t.name} />
-                  <AvatarFallback>{t.name.split(' ').map(n=>n[0]).join('').slice(0,2)}</AvatarFallback>
+                  <AvatarFallback>
+                    {t.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="font-semibold">{t.name}</p>
@@ -69,7 +79,11 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-muted-foreground italic">“{t.text}”</p>
-              {('tag' in t) && <Badge className="mt-3" variant="secondary">{(t as any).tag}</Badge>}
+              {"tag" in t && (
+                <Badge className="mt-3" variant="secondary">
+                  {(t as any).tag}
+                </Badge>
+              )}
             </motion.div>
           ))}
         </div>

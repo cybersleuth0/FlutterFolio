@@ -2,7 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Code2, Clock, Smile } from "lucide-react";
 
-function Counter({ to, label, icon: Icon }: { to: number; label: string; icon: any }) {
+function Counter({
+  to,
+  label,
+  icon: Icon,
+}: {
+  to: number;
+  label: string;
+  icon: any;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-80px" });
   const [val, setVal] = useState(0);

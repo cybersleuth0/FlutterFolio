@@ -25,10 +25,10 @@ const App = () => (
         <BrowserRouter>
           <Header />
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/packages/:slug" element={<PackageDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/packages/:slug" element={<PackageDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
           <Footer />
         </BrowserRouter>
       </ThemeProvider>

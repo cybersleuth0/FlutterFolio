@@ -11,12 +11,17 @@ export default function FlutterPackages() {
   const [filter, setFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const categories = ["all", ...Array.from(new Set(flutterPackages.map((pkg) => pkg.category)))];
+  const categories = [
+    "all",
+    ...Array.from(new Set(flutterPackages.map((pkg) => pkg.category))),
+  ];
 
   const filteredPackages = flutterPackages.filter((pkg) => {
     const matchesCategory = filter === "all" || pkg.category === filter;
     const q = searchQuery.toLowerCase();
-    const matchesSearch = pkg.name.toLowerCase().includes(q) || pkg.description.toLowerCase().includes(q);
+    const matchesSearch =
+      pkg.name.toLowerCase().includes(q) ||
+      pkg.description.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
 
@@ -32,10 +37,13 @@ export default function FlutterPackages() {
           <Badge className="mb-4" variant="outline">
             <PackageIcon className="mr-2 h-3 w-3" /> Technical Expertise
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Flutter Packages I Master</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Flutter Packages I Master
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            In-depth knowledge and hands-on experience with these essential Flutter packages. Click any package to see
-            code examples, best practices, and insights.
+            In-depth knowledge and hands-on experience with these essential
+            Flutter packages. Click any package to see code examples, best
+            practices, and insights.
           </p>
         </motion.div>
 
@@ -48,12 +56,22 @@ export default function FlutterPackages() {
         >
           <div className="relative max-w-md mx-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search packages..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
+            <Input
+              placeholder="Search packages..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
           </div>
 
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
-              <Button key={category} variant={filter === category ? "default" : "outline"} onClick={() => setFilter(category)} className="capitalize">
+              <Button
+                key={category}
+                variant={filter === category ? "default" : "outline"}
+                onClick={() => setFilter(category)}
+                className="capitalize"
+              >
                 {category}
               </Button>
             ))}
@@ -69,7 +87,9 @@ export default function FlutterPackages() {
         {filteredPackages.length === 0 && (
           <div className="text-center py-12">
             <PackageIcon className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-            <p className="text-muted-foreground">No packages found matching your search.</p>
+            <p className="text-muted-foreground">
+              No packages found matching your search.
+            </p>
           </div>
         )}
 
@@ -80,16 +100,26 @@ export default function FlutterPackages() {
           className="mt-16 grid md:grid-cols-3 gap-6 p-8 bg-muted/50 rounded-lg"
         >
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary">{flutterPackages.length}+</p>
-            <p className="text-sm text-muted-foreground mt-1">Packages Mastered</p>
+            <p className="text-3xl font-bold text-primary">
+              {flutterPackages.length}+
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Packages Mastered
+            </p>
           </div>
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary">{Math.max(...flutterPackages.map((p) => p.projectsUsed))}+</p>
-            <p className="text-sm text-muted-foreground mt-1">Projects Delivered</p>
+            <p className="text-3xl font-bold text-primary">
+              {Math.max(...flutterPackages.map((p) => p.projectsUsed))}+
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Projects Delivered
+            </p>
           </div>
           <div className="text-center">
             <p className="text-3xl font-bold text-primary">2+</p>
-            <p className="text-sm text-muted-foreground mt-1">Years Experience</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Years Experience
+            </p>
           </div>
         </motion.div>
       </div>

@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -51,7 +57,9 @@ export default function PackageCard({ package: pkg, index }: PackageCardProps) {
           <div>
             <div className="flex justify-between text-sm mb-2">
               <span className="text-muted-foreground">My Proficiency</span>
-              <span className="font-semibold text-primary">{pkg.proficiency}%</span>
+              <span className="font-semibold text-primary">
+                {pkg.proficiency}%
+              </span>
             </div>
             <Progress value={pkg.proficiency} className="h-2" />
           </div>
@@ -74,10 +82,15 @@ export default function PackageCard({ package: pkg, index }: PackageCardProps) {
           </div>
 
           <div>
-            <p className="text-xs text-muted-foreground font-semibold mb-2">Key Features:</p>
+            <p className="text-xs text-muted-foreground font-semibold mb-2">
+              Key Features:
+            </p>
             <ul className="space-y-1">
               {pkg.keyFeatures.slice(0, 3).map((feature, idx) => (
-                <li key={idx} className="text-xs text-muted-foreground flex items-start gap-2">
+                <li
+                  key={idx}
+                  className="text-xs text-muted-foreground flex items-start gap-2"
+                >
                   <span className="text-primary mt-0.5">•</span>
                   <span>{feature}</span>
                 </li>
@@ -87,9 +100,7 @@ export default function PackageCard({ package: pkg, index }: PackageCardProps) {
 
           <div className="flex gap-2 pt-4">
             <Button asChild className="flex-1">
-              <Link to={`/packages/${pkg.slug}`}>
-                View Details
-              </Link>
+              <Link to={`/packages/${pkg.slug}`}>View Details</Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
               <a href={pkg.pubUrl} target="_blank" rel="noopener noreferrer">
