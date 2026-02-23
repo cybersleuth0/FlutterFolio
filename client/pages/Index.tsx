@@ -290,7 +290,7 @@ export default function Index() {
                 </a>
 
                 <a
-                  href="https://cdn.builder.io/o/assets%2Fd27b201b66fa4008b030539dc4f9452d%2F411fe3bc2e6644638bfee07ae9d8f931?alt=media&token=20e1f54e-d606-4bbf-bfb7-d0f8768f98c0&apiKey=d27b201b66fa4008b030539dc4f9452d"
+                  href="https://drive.google.com/uc?export=download&id=1tnbniZGM2wJUP5tUGx_KNOhZouQHWhE_"
                   target="_blank"
                   rel="noreferrer"
                   className="ml-2 inline-flex items-center rounded-md px-3 py-2 text-sm border"
