@@ -28,6 +28,34 @@ import {
 
 const projects = [
   {
+    title: "BonoRx Healthcare Platform",
+    description:
+      "Production healthcare platform with 95%+ crash-free rate, 33K+ lines of code, 30+ APIs integrated, and AI voice-to-text features saving 80% documentation time. Live on Play Store with 10K+ active users.",
+    tags: [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Firebase",
+      "WebSocket",
+      "AI",
+      "Clean Architecture",
+    ],
+    links: {
+      github: "https://github.com/cybersleuth0",
+      playstore: "https://play.google.com/store"
+    },
+    featured: true,
+    metrics: {
+      crashFreeRate: "95%+",
+      linesOfCode: "33K+",
+      apisIntegrated: "30+",
+      activeUsers: "10K+",
+      developmentTime: "8 months",
+      role: "Lead Frontend Developer",
+      period: "Aug 2024 - Mar 2025",
+    },
+  },
+  {
     title: "ShopSphere",
     description:
       "Modern cross‑platform e‑commerce app with auth, product listings, cart, profiles and theme switching, built with a scalable BLoC + Repository architecture.",
@@ -446,7 +474,27 @@ export default function Index() {
                       <CardDescription>{p.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="relative -mx-2 -mt-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
+                      {p.metrics && (
+                        <div className="mb-4 grid grid-cols-2 gap-2 text-xs">
+                          <div className="rounded-md bg-accent/10 p-2">
+                            <div className="font-semibold text-foreground">{p.metrics.crashFreeRate}</div>
+                            <div className="text-muted-foreground">Crash-free</div>
+                          </div>
+                          <div className="rounded-md bg-accent/10 p-2">
+                            <div className="font-semibold text-foreground">{p.metrics.linesOfCode}</div>
+                            <div className="text-muted-foreground">Code</div>
+                          </div>
+                          <div className="rounded-md bg-accent/10 p-2">
+                            <div className="font-semibold text-foreground">{p.metrics.apisIntegrated}</div>
+                            <div className="text-muted-foreground">APIs</div>
+                          </div>
+                          <div className="rounded-md bg-accent/10 p-2">
+                            <div className="font-semibold text-foreground">{p.metrics.activeUsers}</div>
+                            <div className="text-muted-foreground">Users</div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="relative -mx-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
                         <MiniPreview />
                       </div>
                       <div className="flex flex-wrap gap-2">
