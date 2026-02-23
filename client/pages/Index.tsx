@@ -482,7 +482,7 @@ export default function Index() {
                 (BCA)
               </p>
               <p className="text-sm">2024 – Present</p>
-              <p className="text-sm">SGPA (Semester 1): 9.18 / 10.00</p>
+              <p className="text-sm">CGPA Sem 1+ Sem 2 8.87/10.00</p>
             </div>
           </motion.div>
         </div>
