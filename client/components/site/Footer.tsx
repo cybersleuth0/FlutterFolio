@@ -21,7 +21,7 @@ export default function Footer() {
           <a href="https://github.com/cybersleuth0" aria-label="GitHub" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
             <Github className="h-5 w-5" />
           </a>
-          <a href="https://linkedin.com/in/ayushshende0" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
+          <a href="https://www.linkedin.com/in/ayushshende/" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent">
             <Linkedin className="h-5 w-5" />
           </a>
         </div>
