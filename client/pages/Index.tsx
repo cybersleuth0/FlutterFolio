@@ -350,7 +350,7 @@ export default function Index() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/ayushshende0"
+                  href="https://www.linkedin.com/in/ayushshende/"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-md border hover:bg-accent"
                   aria-label="LinkedIn"
                 >
