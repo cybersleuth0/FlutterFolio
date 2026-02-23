@@ -142,41 +142,6 @@ const proficiencies = [
   { name: "Testing & CI", level: 72, note: "Unit, widget tests, pipelines" },
 ];
 
-const miniSlides = [
-  ({ className = "" }: { className?: string }) => (
-    <div
-      className={`h-full w-full p-4 ${"bg-gradient-to-b from-primary/6 via-accent/6 to-secondary/6"}`}
-    >
-      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4 flex flex-col">
-        <div className="flex items-center justify-between mb-3">
-          <div className="h-3 w-36 rounded bg-muted" />
-          <div className="h-3 w-20 rounded bg-muted" />
-        </div>
-        <div className="flex-1 grid grid-cols-2 gap-3">
-          <div className="rounded-lg bg-muted p-3 flex flex-col gap-2">
-            <div className="h-6 w-3/4 rounded bg-black/10" />
-            <div className="h-3 w-2/3 rounded bg-black/8" />
-            <div className="mt-auto h-8 rounded bg-black/10" />
-          </div>
-          <div className="rounded-lg bg-muted p-3 flex flex-col gap-2">
-            <div className="h-6 w-3/4 rounded bg-black/10" />
-            <div className="h-3 w-2/3 rounded bg-black/8" />
-            <div className="mt-auto h-8 rounded bg-black/10" />
-          </div>
-          <div className="col-span-2 rounded-lg bg-muted p-3">
-            <div className="h-3 w-1/2 rounded bg-black/8 mb-3" />
-            <div className="grid grid-cols-3 gap-2">
-              <div className="h-20 rounded bg-black/10" />
-              <div className="h-20 rounded bg-black/10" />
-              <div className="h-20 rounded bg-black/10" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
-];
-
 function ChatPreview() {
   const steps = [
     { from: "client", text: "I'm stuck — my app crashes on launch 😩" },
@@ -253,40 +218,6 @@ function ChatPreview() {
         <div className="h-2 w-2 rounded-full bg-destructive/60" />
         Client chat preview
       </div>
-    </div>
-  );
-}
-
-function MiniPreview() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(
-      () => setIndex((i) => (i + 1) % miniSlides.length),
-      3500,
-    );
-    return () => clearInterval(t);
-  }, []);
-
-  const Slide = miniSlides[index];
-
-  return (
-    <div className="relative h-full w-full bg-black/5">
-      {miniSlides.map((S, i) => (
-        <motion.div
-          key={i}
-          className="absolute inset-0 h-full w-full"
-          initial={{ opacity: 0, y: 8, scale: 0.995 }}
-          animate={{
-            opacity: i === index ? 1 : 0,
-            y: i === index ? 0 : 8,
-            scale: i === index ? 1 : 0.995,
-          }}
-          transition={{ duration: 0.6 }}
-        >
-          <S />
-        </motion.div>
-      ))}
     </div>
   );
 }
@@ -467,9 +398,6 @@ export default function Index() {
                           </div>
                         </div>
                       )}
-                      <div className="relative -mx-2 mb-4 h-40 overflow-hidden rounded-md border glass opacity-0 transition-[opacity,transform,colors] duration-500 group-hover:opacity-100 group-hover:scale-[1.01]">
-                        <MiniPreview />
-                      </div>
                       <div className="flex flex-wrap gap-2">
                         {p.tags.map((t) => (
                           <Badge
