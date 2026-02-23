@@ -175,20 +175,6 @@ const miniSlides = [
       </div>
     </div>
   ),
-  ({ className = "" }: { className?: string }) => (
-    <div
-      className={`h-full w-full p-4 ${"bg-gradient-to-b from-secondary/6 to-accent/6"}`}
-    >
-      <div className="h-full w-full rounded-lg overflow-hidden bg-gradient-to-b from-black/0 to-black/5 p-4">
-        <div className="h-3 w-2/3 rounded bg-muted mb-4" />
-        <div className="grid grid-cols-2 gap-2">
-          <div className="h-20 rounded-lg bg-muted" />
-          <div className="h-20 rounded-lg bg-muted" />
-          <div className="h-20 rounded-lg bg-muted col-span-2" />
-        </div>
-      </div>
-    </div>
-  ),
 ];
 
 function ChatPreview() {
