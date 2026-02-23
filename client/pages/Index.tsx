@@ -41,8 +41,8 @@ const projects = [
       "Clean Architecture",
     ],
     links: {
-      github: "https://github.com/cybersleuth0",
-      playstore: "https://play.google.com/store"
+      github: "https://play.google.com/store/apps/details?id=ai.bonorx.app",
+      playstore: "https://play.google.com/store/apps/details?id=ai.bonorx.app"
     },
     featured: true,
     metrics: {
