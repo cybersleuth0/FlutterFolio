@@ -508,7 +508,7 @@ export default function Index() {
           <div className="mt-12 flex flex-wrap gap-6 text-sm">
             {[
               { href: "https://github.com/cybersleuth0", label: "GitHub", Icon: Github },
-              { href: "https://www.linkedin.com/in/ayushshende/", label: "LinkedIn", Icon: Linkedin },
+              { href: "https://www.linkedin.com/in/ayushshende0/", label: "LinkedIn", Icon: Linkedin },
               { href: "https://medium.com/@ayushshende83", label: "Medium", Icon: PenLine },
             ].map(({ href, label, Icon }) => (
               <a
